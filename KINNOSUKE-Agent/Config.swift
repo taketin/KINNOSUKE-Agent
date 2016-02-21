@@ -9,3 +9,5 @@
 import Foundation
 
 let AppName = "KINNOSUKE-Agent"
+let TARGET_SITE_SCHEME = "https://"
+let TARGET_SITE_URL = "www.4628.jp"
