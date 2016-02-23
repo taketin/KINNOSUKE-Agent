@@ -33,19 +33,33 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     private func _setupStatusItem() {
-        statusButton = CustomMenuButton(frame: CGRect(x: 0,y: 0, width: 50, height: 30))
+        statusButton = CustomMenuButton(frame: CGRect(x: 0,y: 0, width: 20, height: 20))
         statusButton.title = AppName
         statusButton.bordered = false
         statusButton.target = self
         statusButton.action = "togglePopover:"
         statusButton.rightMouseDownAction = { _ in }
+        statusButton.image = NSImage(named: "kinnosuke_white")
+
+        // Icon
+        var imageName = "icon_kinnosuke"
+
+        if let domain = NSUserDefaults.standardUserDefaults().persistentDomainForName(NSGlobalDomain) {
+            if let style = domain["AppleInterfaceStyle"] as? String {
+                if style == "Dark" {
+                    imageName += "_white"
+                } else {
+                    imageName += "_black"
+                }
+            }
+        }
+
+        self.statusButton.image = NSImage(named: imageName)
 
         statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
         if let statusItem = statusItem {
             statusItem.highlightMode = true
             statusItem.title = AppName
-            // TODO: アイコン
-            // _statusItem?.image = NSImage(named: "")
             statusItem.view = statusButton
         }
     }

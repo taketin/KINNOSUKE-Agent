@@ -7,19 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		732236121C7A242D00B15E61 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 732236111C7A242D00B15E61 /* Kanna.framework */; };
+		732236131C7A242D00B15E61 /* Kanna.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 732236111C7A242D00B15E61 /* Kanna.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7335C7741C7855E500085C7A /* NSColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7335C7731C7855E500085C7A /* NSColor+Extensions.swift */; };
 		7335C7771C794E1300085C7A /* WebConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7335C7761C794E1300085C7A /* WebConnection.swift */; };
 		73AF6AA01C6DCEC5006E3AE2 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AF6A9F1C6DCEC5006E3AE2 /* Config.swift */; };
 		73AF6AC61C6F59CC006E3AE2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73AF6AC51C6F59CC006E3AE2 /* Alamofire.framework */; };
-		73AF6AC81C6F59D1006E3AE2 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73AF6AC71C6F59D1006E3AE2 /* Kanna.framework */; };
 		73AF6ACA1C6F59FE006E3AE2 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 73AF6AC51C6F59CC006E3AE2 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		73AF6ACD1C6F5A02006E3AE2 /* Kanna.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 73AF6AC71C6F59D1006E3AE2 /* Kanna.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		73AF6AD01C6F933A006E3AE2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AF6ACF1C6F933A006E3AE2 /* LoginViewController.swift */; };
 		73AF6AD31C6F9762006E3AE2 /* CustomMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AF6AD21C6F9762006E3AE2 /* CustomMenuButton.swift */; };
 		73AF6ADA1C6FA3C4006E3AE2 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73AF6AD91C6FA3C4006E3AE2 /* LoginViewController.xib */; };
 		73BA41DD1C6D9FD3008B5B7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BA41DC1C6D9FD3008B5B7B /* AppDelegate.swift */; };
 		73BA41E11C6D9FD3008B5B7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73BA41E01C6D9FD3008B5B7B /* Assets.xcassets */; };
 		73BA41E41C6D9FD3008B5B7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73BA41E21C6D9FD3008B5B7B /* Main.storyboard */; };
+		73CCFAB61C7CBA43003F9D5F /* icon_kinnosuke_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CCFAB41C7CBA43003F9D5F /* icon_kinnosuke_black.png */; };
+		73CCFAB71C7CBA43003F9D5F /* icon_kinnosuke_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CCFAB51C7CBA43003F9D5F /* icon_kinnosuke_white.png */; };
 		73E796B11C797141001BAD65 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E796B01C797141001BAD65 /* Notification.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +32,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				73AF6ACD1C6F5A02006E3AE2 /* Kanna.framework in Embed Frameworks */,
+				732236131C7A242D00B15E61 /* Kanna.framework in Embed Frameworks */,
 				73AF6ACA1C6F59FE006E3AE2 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -39,11 +41,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		732236111C7A242D00B15E61 /* Kanna.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kanna.framework; path = Carthage/Build/Mac/Kanna.framework; sourceTree = "<group>"; };
 		7335C7731C7855E500085C7A /* NSColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Extensions.swift"; sourceTree = "<group>"; };
 		7335C7761C794E1300085C7A /* WebConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebConnection.swift; sourceTree = "<group>"; };
 		73AF6A9F1C6DCEC5006E3AE2 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		73AF6AC51C6F59CC006E3AE2 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
-		73AF6AC71C6F59D1006E3AE2 /* Kanna.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kanna.framework; path = Carthage/Build/Mac/Kanna.framework; sourceTree = "<group>"; };
 		73AF6ACF1C6F933A006E3AE2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		73AF6AD21C6F9762006E3AE2 /* CustomMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMenuButton.swift; sourceTree = "<group>"; };
 		73AF6AD91C6FA3C4006E3AE2 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -52,6 +54,8 @@
 		73BA41E01C6D9FD3008B5B7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73BA41E31C6D9FD3008B5B7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		73BA41E51C6D9FD3008B5B7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73CCFAB41C7CBA43003F9D5F /* icon_kinnosuke_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_kinnosuke_black.png; sourceTree = "<group>"; };
+		73CCFAB51C7CBA43003F9D5F /* icon_kinnosuke_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_kinnosuke_white.png; sourceTree = "<group>"; };
 		73E796B01C797141001BAD65 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,8 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				732236121C7A242D00B15E61 /* Kanna.framework in Frameworks */,
 				73AF6AC61C6F59CC006E3AE2 /* Alamofire.framework in Frameworks */,
-				73AF6AC81C6F59D1006E3AE2 /* Kanna.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +117,7 @@
 		73BA41D01C6D9FD3008B5B7B = {
 			isa = PBXGroup;
 			children = (
-				73AF6AC71C6F59D1006E3AE2 /* Kanna.framework */,
+				732236111C7A242D00B15E61 /* Kanna.framework */,
 				73AF6AC51C6F59CC006E3AE2 /* Alamofire.framework */,
 				73BA41DB1C6D9FD3008B5B7B /* KINNOSUKE-Agent */,
 				73BA41DA1C6D9FD3008B5B7B /* Products */,
@@ -131,6 +135,7 @@
 		73BA41DB1C6D9FD3008B5B7B /* KINNOSUKE-Agent */ = {
 			isa = PBXGroup;
 			children = (
+				73CCFAA81C7CB5BF003F9D5F /* Resources */,
 				7335C7721C7855D100085C7A /* Utility */,
 				73AF6AD11C6F9610006E3AE2 /* UI Components */,
 				7335C7751C794DE200085C7A /* Services */,
@@ -142,6 +147,23 @@
 				73BA41E51C6D9FD3008B5B7B /* Info.plist */,
 			);
 			path = "KINNOSUKE-Agent";
+			sourceTree = "<group>";
+		};
+		73CCFAA81C7CB5BF003F9D5F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				73CCFAA91C7CB5C7003F9D5F /* Images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		73CCFAA91C7CB5C7003F9D5F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				73CCFAB41C7CBA43003F9D5F /* icon_kinnosuke_black.png */,
+				73CCFAB51C7CBA43003F9D5F /* icon_kinnosuke_white.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,7 +226,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				73BA41E11C6D9FD3008B5B7B /* Assets.xcassets in Resources */,
+				73CCFAB61C7CBA43003F9D5F /* icon_kinnosuke_black.png in Resources */,
 				73BA41E41C6D9FD3008B5B7B /* Main.storyboard in Resources */,
+				73CCFAB71C7CBA43003F9D5F /* icon_kinnosuke_white.png in Resources */,
 				73AF6ADA1C6FA3C4006E3AE2 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
