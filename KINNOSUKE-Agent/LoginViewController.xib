@@ -176,10 +176,5 @@ EBDjgYrlrqLmp5hJRA
             </constraints>
             <point key="canvasLocation" x="297" y="41.5"/>
         </customView>
-        <customView id="OMv-kV-Zhq">
-            <rect key="frame" x="0.0" y="0.0" width="163" height="96"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <point key="canvasLocation" x="517.5" y="222"/>
-        </customView>
     </objects>
 </document>

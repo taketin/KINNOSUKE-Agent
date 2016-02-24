@@ -11,10 +11,6 @@ import Alamofire
 
 class WebConnection {
 
-    // MARK: Constants
-
-    static let userParamsKey = "KINNOSUKE-Agent_user_params"
-
     // MARK: Properties
 
     static var basePath = "\(TARGET_SITE_SCHEME)\(TARGET_SITE_URL)"
@@ -38,11 +34,6 @@ class WebConnection {
     }
 
     // MARK: Cookie and User parameters
-
-    class func storeUserData(userParams: [String: String]) {
-        let userParamsData = NSKeyedArchiver.archivedDataWithRootObject(userParams)
-        NSUserDefaults.standardUserDefaults().setObject(userParamsData, forKey: WebConnection.userParamsKey)
-    }
 
     class func setCookie(response: NSHTTPURLResponse) -> Bool {
         let cookies = NSHTTPCookie.cookiesWithResponseHeaderFields(
@@ -80,7 +71,7 @@ class WebConnection {
                    let _ = value.rangeOfString(isLoginedKeyString)
                    where setCookie(response)
                 {
-                    storeUserData(params)
+                    NSUserDefaults.storeUserData(params)
                     completion(.Success(response))
                 } else {
                     completion(.Failure(NSError(domain: "login", code: 1000, userInfo: nil)))
@@ -93,9 +84,7 @@ class WebConnection {
     }
 
     class func loginSession(completion: Result<NSHTTPURLResponse, NSError> -> ()) {
-        guard let userParamsData = NSUserDefaults.standardUserDefaults().objectForKey(WebConnection.userParamsKey) as? NSData,
-              let userParams = NSKeyedUnarchiver.unarchiveObjectWithData(userParamsData) as? [String: String]
-        else {
+        guard let userParams = NSUserDefaults.userParams() else {
             return completion(.Failure(NSError(domain: "login-session", code: 1000, userInfo: nil)))
         }
 

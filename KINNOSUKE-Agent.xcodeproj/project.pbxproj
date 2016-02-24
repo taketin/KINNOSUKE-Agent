@@ -22,6 +22,9 @@
 		73BA41E41C6D9FD3008B5B7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73BA41E21C6D9FD3008B5B7B /* Main.storyboard */; };
 		73CCFAB61C7CBA43003F9D5F /* icon_kinnosuke_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CCFAB41C7CBA43003F9D5F /* icon_kinnosuke_black.png */; };
 		73CCFAB71C7CBA43003F9D5F /* icon_kinnosuke_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CCFAB51C7CBA43003F9D5F /* icon_kinnosuke_white.png */; };
+		73CCFABD1C7E05BC003F9D5F /* NSUserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CCFABC1C7E05BC003F9D5F /* NSUserDefaults+Extensions.swift */; };
+		73CCFAC11C7E07F0003F9D5F /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CCFAC01C7E07F0003F9D5F /* ContentViewController.swift */; };
+		73CCFAC71C7E0AEA003F9D5F /* ContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73CCFAC61C7E0AEA003F9D5F /* ContentViewController.xib */; };
 		73E796B11C797141001BAD65 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E796B01C797141001BAD65 /* Notification.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +59,9 @@
 		73BA41E51C6D9FD3008B5B7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73CCFAB41C7CBA43003F9D5F /* icon_kinnosuke_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_kinnosuke_black.png; sourceTree = "<group>"; };
 		73CCFAB51C7CBA43003F9D5F /* icon_kinnosuke_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_kinnosuke_white.png; sourceTree = "<group>"; };
+		73CCFABC1C7E05BC003F9D5F /* NSUserDefaults+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		73CCFAC01C7E07F0003F9D5F /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		73CCFAC61C7E0AEA003F9D5F /* ContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentViewController.xib; sourceTree = "<group>"; };
 		73E796B01C797141001BAD65 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,6 +83,7 @@
 			children = (
 				7335C7731C7855E500085C7A /* NSColor+Extensions.swift */,
 				73E796B01C797141001BAD65 /* Notification.swift */,
+				73CCFABC1C7E05BC003F9D5F /* NSUserDefaults+Extensions.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -94,6 +101,7 @@
 			children = (
 				73AF6AD41C6FA18D006E3AE2 /* xib */,
 				73AF6ACF1C6F933A006E3AE2 /* LoginViewController.swift */,
+				73CCFAC01C7E07F0003F9D5F /* ContentViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -110,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				73AF6AD91C6FA3C4006E3AE2 /* LoginViewController.xib */,
+				73CCFAC61C7E0AEA003F9D5F /* ContentViewController.xib */,
 			);
 			name = xib;
 			sourceTree = "<group>";
@@ -227,6 +236,7 @@
 			files = (
 				73BA41E11C6D9FD3008B5B7B /* Assets.xcassets in Resources */,
 				73CCFAB61C7CBA43003F9D5F /* icon_kinnosuke_black.png in Resources */,
+				73CCFAC71C7E0AEA003F9D5F /* ContentViewController.xib in Resources */,
 				73BA41E41C6D9FD3008B5B7B /* Main.storyboard in Resources */,
 				73CCFAB71C7CBA43003F9D5F /* icon_kinnosuke_white.png in Resources */,
 				73AF6ADA1C6FA3C4006E3AE2 /* LoginViewController.xib in Resources */,
@@ -244,7 +254,9 @@
 				73AF6AD01C6F933A006E3AE2 /* LoginViewController.swift in Sources */,
 				73AF6AD31C6F9762006E3AE2 /* CustomMenuButton.swift in Sources */,
 				73E796B11C797141001BAD65 /* Notification.swift in Sources */,
+				73CCFAC11C7E07F0003F9D5F /* ContentViewController.swift in Sources */,
 				7335C7741C7855E500085C7A /* NSColor+Extensions.swift in Sources */,
+				73CCFABD1C7E05BC003F9D5F /* NSUserDefaults+Extensions.swift in Sources */,
 				73BA41DD1C6D9FD3008B5B7B /* AppDelegate.swift in Sources */,
 				73AF6AA01C6DCEC5006E3AE2 /* Config.swift in Sources */,
 			);

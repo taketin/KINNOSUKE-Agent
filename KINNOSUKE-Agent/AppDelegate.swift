@@ -15,14 +15,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusButton: CustomMenuButton!
     var statusItem: NSStatusItem?
     var loginViewController: LoginViewController
+    var contentViewController: ContentViewController
     var popover: NSPopover
     var notification = Notification()
 
     override init() {
-        // TODO: ログイン情報を持っているかどうかでビューを出し分ける
         loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)!
+        contentViewController = ContentViewController(nibName: "ContentViewController", bundle: nil)!
         popover = NSPopover()
-        popover.contentViewController = loginViewController
     }
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
@@ -67,6 +67,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: Action methods
 
     func togglePopover(sender: AnyObject?) {
+        if let _ = NSUserDefaults.userParams() {
+            popover.contentViewController = contentViewController
+        } else {
+            popover.contentViewController = loginViewController
+        }
+
         if popover.shown {
             closePopover(sender)
         } else {

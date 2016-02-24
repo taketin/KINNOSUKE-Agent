@@ -40,8 +40,16 @@ class LoginViewController: NSViewController {
 
         WebConnection.login(params) { response in
             switch response {
-            case .Success(let res):
+            case .Success:
                 print("Login succeeded.")
+                (NSApp.delegate as! AppDelegate).notification.show(
+                    title: "Succeed !",
+                    message: "Login to your 勤乃助"
+                )
+
+                let appDelegate = (NSApp.delegate as! AppDelegate)
+                appDelegate.popover.contentViewController = appDelegate.contentViewController
+                appDelegate.showPopover(nil)
 
             case .Failure:
                 print("Login failure.")
@@ -52,19 +60,6 @@ class LoginViewController: NSViewController {
             }
         }
 
-        WebConnection.attendanceRecord { response in
-            switch response {
-            case .Success(let res):
-                print("Attendance record succeeded.")
-
-            case .Failure:
-                print("Login failure.")
-                (NSApp.delegate as! AppDelegate).notification.show(
-                    title: "Attendance record failure",
-                    message: ""
-                )
-            }
-        }
     }
 
 }
