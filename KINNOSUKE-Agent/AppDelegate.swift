@@ -15,42 +15,48 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         case Normal, Warning
     }
 
+    // MARK: IBOutlets
+
     @IBOutlet weak var _statusMenu: NSMenu!
+
+    // MARK: Properties
+
     var statusButton: CustomMenuButton!
-    var statusItem: NSStatusItem?
+    var statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
     var loginViewController: LoginViewController
-    var contentViewController: ContentViewController
-    var popover: NSPopover
+    var popover = NSPopover()
     var notification = Notification()
+
+    // MARK: Initializer
 
     override init() {
         loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)!
-        contentViewController = ContentViewController(nibName: "ContentViewController", bundle: nil)!
-        popover = NSPopover()
+        popover.contentViewController = loginViewController
     }
 
+    // MARK: Lifecycle
+
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        _setupStatusItem()
+        configureStatusItem()
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
     }
 
-    private func _setupStatusItem() {
-        statusButton = CustomMenuButton(frame: CGRect(x: 0,y: 0, width: 20, height: 20))
-        statusButton.title = AppName
-        statusButton.bordered = false
-        statusButton.target = self
-        statusButton.action = "togglePopover:"
-        statusButton.rightMouseDownAction = { _ in }
-        statusButton.image = NSImage(named: "kinnosuke_white")
+    func configureStatusItem() {
+        statusItem.highlightMode = true
 
-        // NOTE: Setting icon
-        changeIcon(.Normal)
-        statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
-        if let statusItem = statusItem {
-            statusItem.highlightMode = true
-            statusItem.title = AppName
+        if let _ = NSUserDefaults.userParams() {
+            statusItem.view = nil
+            statusItem.image = iconImage(.Normal)
+            statusItem.menu = _statusMenu
+        } else {
+            statusButton = CustomMenuButton(frame: CGRect(x: 0,y: 0, width: 20, height: 20))
+            statusButton.image = iconImage(.Normal)
+            statusButton.bordered = false
+            statusButton.target = self
+            statusButton.rightMouseDownAction = { _ in }
+            statusButton.action = "togglePopover:"
             statusItem.view = statusButton
         }
     }
@@ -59,21 +65,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func togglePopover(sender: AnyObject?) {
         if let _ = NSUserDefaults.userParams() {
-            popover.contentViewController = contentViewController
+            configureStatusItem()
         } else {
-            popover.contentViewController = loginViewController
-        }
-
-        if popover.shown {
-            closePopover(sender)
-        } else {
-            showPopover(sender)
+            if popover.shown {
+                closePopover(sender)
+            } else {
+                showPopover(sender)
+            }
         }
     }
 
     // MARK: Public methods
 
-    func changeIcon(state: IconState) {
+    func iconImage(state: IconState) -> NSImage {
         switch state {
         case .Normal:
             var imageName = "icon_kinnosuke"
@@ -87,10 +91,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 }
             }
 
-            self.statusButton.image = NSImage(named: imageName)
+            return NSImage(named: imageName)!
 
         case .Warning:
-            self.statusButton.image = NSImage(named: "icon_kinnosuke_red")
+            return NSImage(named: "icon_kinnosuke_red")!
         }
     }
 
@@ -102,4 +106,44 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.performClose(sender)
     }
 
+}
+
+extension AppDelegate: NSMenuDelegate {
+    func menuWillOpen(menu: NSMenu) {
+        // MEMO: If user defaults cleanup, will the menu change.
+        configureStatusItem()
+    }
+
+    @IBAction func fetch(sender: AnyObject) {
+        Scraper.AttendanceRecord.forgottenDays { [weak self] response in
+            guard let strongSelf = self else {
+                return
+            }
+
+            switch response {
+            case .Success(let forgottonDays):
+                print("ForgottonDays: \(forgottonDays)")
+                if forgottonDays.count > 0 {
+                    (NSApp.delegate as! AppDelegate).notification.show(
+                        title: "勤怠申請漏れが\(forgottonDays.count)件あります！",
+                        message: "\(WebConnection.basePath)\(WebConnection.attendancePagePath)"
+                    )
+
+                    strongSelf.statusItem.image = strongSelf.iconImage(.Warning)
+                } else {
+                    strongSelf.statusItem.image = strongSelf.iconImage(.Normal)
+                }
+
+            case .Failure(let error):
+                (NSApp.delegate as! AppDelegate).notification.show(
+                    title: "通信に失敗しました",
+                    message: error.description
+                )
+            }
+        }
+    }
+
+    @IBAction func logout(sender: AnyObject) {
+        NSUserDefaults.deleteUserParams()
+    }
 }

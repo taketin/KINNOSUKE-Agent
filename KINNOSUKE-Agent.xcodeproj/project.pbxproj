@@ -26,8 +26,6 @@
 		73BA41E11C6D9FD3008B5B7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73BA41E01C6D9FD3008B5B7B /* Assets.xcassets */; };
 		73BA41E41C6D9FD3008B5B7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73BA41E21C6D9FD3008B5B7B /* Main.storyboard */; };
 		73CCFABD1C7E05BC003F9D5F /* NSUserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CCFABC1C7E05BC003F9D5F /* NSUserDefaults+Extensions.swift */; };
-		73CCFAC11C7E07F0003F9D5F /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CCFAC01C7E07F0003F9D5F /* ContentViewController.swift */; };
-		73CCFAC71C7E0AEA003F9D5F /* ContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73CCFAC61C7E0AEA003F9D5F /* ContentViewController.xib */; };
 		73E796B11C797141001BAD65 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E796B01C797141001BAD65 /* Notification.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,8 +64,6 @@
 		73BA41E31C6D9FD3008B5B7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		73BA41E51C6D9FD3008B5B7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73CCFABC1C7E05BC003F9D5F /* NSUserDefaults+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserDefaults+Extensions.swift"; sourceTree = "<group>"; };
-		73CCFAC01C7E07F0003F9D5F /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
-		73CCFAC61C7E0AEA003F9D5F /* ContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentViewController.xib; sourceTree = "<group>"; };
 		73E796B01C797141001BAD65 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,13 +91,13 @@
 			name = Utility;
 			sourceTree = "<group>";
 		};
-		7335C7751C794DE200085C7A /* Services */ = {
+		7335C7751C794DE200085C7A /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				7335C7761C794E1300085C7A /* WebConnection.swift */,
 				7384865B1C81706900E0B95F /* Scraper.swift */,
 			);
-			name = Services;
+			name = Service;
 			sourceTree = "<group>";
 		};
 		73AF6ACE1C6F9319006E3AE2 /* ViewController */ = {
@@ -109,24 +105,22 @@
 			children = (
 				73AF6AD41C6FA18D006E3AE2 /* xib */,
 				73AF6ACF1C6F933A006E3AE2 /* LoginViewController.swift */,
-				73CCFAC01C7E07F0003F9D5F /* ContentViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
 		};
-		73AF6AD11C6F9610006E3AE2 /* UI Components */ = {
+		73AF6AD11C6F9610006E3AE2 /* UI Component */ = {
 			isa = PBXGroup;
 			children = (
 				73AF6AD21C6F9762006E3AE2 /* CustomMenuButton.swift */,
 			);
-			name = "UI Components";
+			name = "UI Component";
 			sourceTree = "<group>";
 		};
 		73AF6AD41C6FA18D006E3AE2 /* xib */ = {
 			isa = PBXGroup;
 			children = (
 				73AF6AD91C6FA3C4006E3AE2 /* LoginViewController.xib */,
-				73CCFAC61C7E0AEA003F9D5F /* ContentViewController.xib */,
 			);
 			name = xib;
 			sourceTree = "<group>";
@@ -152,10 +146,10 @@
 		73BA41DB1C6D9FD3008B5B7B /* KINNOSUKE-Agent */ = {
 			isa = PBXGroup;
 			children = (
-				73CCFAA81C7CB5BF003F9D5F /* Resources */,
+				73CCFAA81C7CB5BF003F9D5F /* Resource */,
 				7335C7721C7855D100085C7A /* Utility */,
-				73AF6AD11C6F9610006E3AE2 /* UI Components */,
-				7335C7751C794DE200085C7A /* Services */,
+				73AF6AD11C6F9610006E3AE2 /* UI Component */,
+				7335C7751C794DE200085C7A /* Service */,
 				73AF6ACE1C6F9319006E3AE2 /* ViewController */,
 				73BA41DC1C6D9FD3008B5B7B /* AppDelegate.swift */,
 				73AF6A9F1C6DCEC5006E3AE2 /* Config.swift */,
@@ -166,22 +160,22 @@
 			path = "KINNOSUKE-Agent";
 			sourceTree = "<group>";
 		};
-		73CCFAA81C7CB5BF003F9D5F /* Resources */ = {
+		73CCFAA81C7CB5BF003F9D5F /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				73CCFAA91C7CB5C7003F9D5F /* Images */,
+				73CCFAA91C7CB5C7003F9D5F /* Image */,
 			);
-			name = Resources;
+			name = Resource;
 			sourceTree = "<group>";
 		};
-		73CCFAA91C7CB5C7003F9D5F /* Images */ = {
+		73CCFAA91C7CB5C7003F9D5F /* Image */ = {
 			isa = PBXGroup;
 			children = (
 				732E6C581C7F46320049F948 /* icon_kinnosuke_white.png */,
 				732E6C591C7F46320049F948 /* icon_kinnosuke_red.png */,
 				732E6C5A1C7F46320049F948 /* icon_kinnosuke_black.png */,
 			);
-			name = Images;
+			name = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,7 +241,6 @@
 				732E6C5D1C7F46320049F948 /* icon_kinnosuke_black.png in Resources */,
 				73BA41E11C6D9FD3008B5B7B /* Assets.xcassets in Resources */,
 				732E6C5C1C7F46320049F948 /* icon_kinnosuke_red.png in Resources */,
-				73CCFAC71C7E0AEA003F9D5F /* ContentViewController.xib in Resources */,
 				73BA41E41C6D9FD3008B5B7B /* Main.storyboard in Resources */,
 				73AF6ADA1C6FA3C4006E3AE2 /* LoginViewController.xib in Resources */,
 			);
@@ -266,7 +259,6 @@
 				7384865C1C81706900E0B95F /* Scraper.swift in Sources */,
 				73AF6AD31C6F9762006E3AE2 /* CustomMenuButton.swift in Sources */,
 				73E796B11C797141001BAD65 /* Notification.swift in Sources */,
-				73CCFAC11C7E07F0003F9D5F /* ContentViewController.swift in Sources */,
 				7335C7741C7855E500085C7A /* NSColor+Extensions.swift in Sources */,
 				73CCFABD1C7E05BC003F9D5F /* NSUserDefaults+Extensions.swift in Sources */,
 				73BA41DD1C6D9FD3008B5B7B /* AppDelegate.swift in Sources */,

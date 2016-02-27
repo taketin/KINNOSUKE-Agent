@@ -48,8 +48,8 @@ class LoginViewController: NSViewController {
                 )
 
                 let appDelegate = (NSApp.delegate as! AppDelegate)
-                appDelegate.popover.contentViewController = appDelegate.contentViewController
-                appDelegate.showPopover(nil)
+                appDelegate.closePopover(nil)
+                appDelegate.configureStatusItem()
 
             case .Failure:
                 print("Login failure.")

@@ -650,11 +650,17 @@
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <menu title="KINNOSUKE-Agent" id="l1X-Ct-uPJ">
                     <items>
-                        <menuItem title="Item 1" id="YDy-1I-96s">
+                        <menuItem title="Fetch" id="YDy-1I-96s" userLabel="Fetch">
                             <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="fetch:" target="Voe-Tx-rLC" id="0dd-W0-kQx"/>
+                            </connections>
                         </menuItem>
-                        <menuItem title="Item 2" id="Lei-gq-ffg">
+                        <menuItem title="Logout" id="Lei-gq-ffg" userLabel="Logout">
                             <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="logout:" target="Voe-Tx-rLC" id="5r3-fT-Uuv"/>
+                            </connections>
                         </menuItem>
                         <menuItem title="Quit" id="Zsv-eE-frw">
                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -663,6 +669,9 @@
                             </connections>
                         </menuItem>
                     </items>
+                    <connections>
+                        <outlet property="delegate" destination="Voe-Tx-rLC" id="ZGe-12-5yr"/>
+                    </connections>
                 </menu>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>

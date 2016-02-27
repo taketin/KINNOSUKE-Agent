@@ -28,4 +28,8 @@ extension NSUserDefaults {
 
         return userParams
     }
+
+    class func deleteUserParams() {
+        NSUserDefaults.standardUserDefaults().removeObjectForKey(NSUserDefaults.userParamsKey)
+    }
 }
