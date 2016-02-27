@@ -6,7 +6,7 @@
 //  Copyright © 2016年 taketin. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 class CustomMenuButton: NSButton {
     var rightMouseDownAction:(NSEvent -> ())?

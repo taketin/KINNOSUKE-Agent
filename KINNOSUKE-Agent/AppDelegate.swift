@@ -6,11 +6,15 @@
 //  Copyright © 2016年 taketin. All rights reserved.
 //
 
-import Cocoa
-import Kanna
+import AppKit
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+
+    enum IconState {
+        case Normal, Warning
+    }
+
     @IBOutlet weak var _statusMenu: NSMenu!
     var statusButton: CustomMenuButton!
     var statusItem: NSStatusItem?
@@ -41,21 +45,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusButton.rightMouseDownAction = { _ in }
         statusButton.image = NSImage(named: "kinnosuke_white")
 
-        // Icon
-        var imageName = "icon_kinnosuke"
-
-        if let domain = NSUserDefaults.standardUserDefaults().persistentDomainForName(NSGlobalDomain) {
-            if let style = domain["AppleInterfaceStyle"] as? String {
-                if style == "Dark" {
-                    imageName += "_white"
-                } else {
-                    imageName += "_black"
-                }
-            }
-        }
-
-        self.statusButton.image = NSImage(named: imageName)
-
+        // NOTE: Setting icon
+        changeIcon(.Normal)
         statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
         if let statusItem = statusItem {
             statusItem.highlightMode = true
@@ -80,7 +71,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    // MARK:
+    // MARK: Public methods
+
+    func changeIcon(state: IconState) {
+        switch state {
+        case .Normal:
+            var imageName = "icon_kinnosuke"
+            if let domain = NSUserDefaults.standardUserDefaults().persistentDomainForName(NSGlobalDomain) {
+                if let style = domain["AppleInterfaceStyle"] as? String {
+                    if style == "Dark" {
+                        imageName += "_white"
+                    } else {
+                        imageName += "_black"
+                    }
+                }
+            }
+
+            self.statusButton.image = NSImage(named: imageName)
+
+        case .Warning:
+            self.statusButton.image = NSImage(named: "icon_kinnosuke_red")
+        }
+    }
 
     func showPopover(sender: AnyObject?) {
         popover.showRelativeToRect(statusButton.bounds, ofView: statusButton, preferredEdge: .MinY)

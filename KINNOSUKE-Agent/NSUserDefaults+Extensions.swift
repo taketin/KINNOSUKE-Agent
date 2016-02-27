@@ -12,6 +12,8 @@ extension NSUserDefaults {
     typealias USER_PARAMS = [String: String]
     @nonobjc static let userParamsKey = "KINNOSUKE-Agent_user_params"
 
+    // MARK: Class methods
+
     class func storeUserData(userParams: USER_PARAMS) {
         let userParamsData = NSKeyedArchiver.archivedDataWithRootObject(userParams)
         NSUserDefaults.standardUserDefaults().setObject(userParamsData, forKey: NSUserDefaults.userParamsKey)

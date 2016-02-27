@@ -6,7 +6,7 @@
 //  Copyright © 2016年 taketin. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 extension NSColor {
     static func hex(color: UInt32, alpha: CGFloat = 1.0) -> NSColor {

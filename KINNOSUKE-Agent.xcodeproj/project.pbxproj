@@ -9,8 +9,13 @@
 /* Begin PBXBuildFile section */
 		732236121C7A242D00B15E61 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 732236111C7A242D00B15E61 /* Kanna.framework */; };
 		732236131C7A242D00B15E61 /* Kanna.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 732236111C7A242D00B15E61 /* Kanna.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		732E6C5B1C7F46320049F948 /* icon_kinnosuke_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 732E6C581C7F46320049F948 /* icon_kinnosuke_white.png */; };
+		732E6C5C1C7F46320049F948 /* icon_kinnosuke_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 732E6C591C7F46320049F948 /* icon_kinnosuke_red.png */; };
+		732E6C5D1C7F46320049F948 /* icon_kinnosuke_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 732E6C5A1C7F46320049F948 /* icon_kinnosuke_black.png */; };
 		7335C7741C7855E500085C7A /* NSColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7335C7731C7855E500085C7A /* NSColor+Extensions.swift */; };
 		7335C7771C794E1300085C7A /* WebConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7335C7761C794E1300085C7A /* WebConnection.swift */; };
+		7384865A1C816CCF00E0B95F /* NSDate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738486591C816CCF00E0B95F /* NSDate+Extensions.swift */; };
+		7384865C1C81706900E0B95F /* Scraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384865B1C81706900E0B95F /* Scraper.swift */; };
 		73AF6AA01C6DCEC5006E3AE2 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AF6A9F1C6DCEC5006E3AE2 /* Config.swift */; };
 		73AF6AC61C6F59CC006E3AE2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73AF6AC51C6F59CC006E3AE2 /* Alamofire.framework */; };
 		73AF6ACA1C6F59FE006E3AE2 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 73AF6AC51C6F59CC006E3AE2 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -20,8 +25,6 @@
 		73BA41DD1C6D9FD3008B5B7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BA41DC1C6D9FD3008B5B7B /* AppDelegate.swift */; };
 		73BA41E11C6D9FD3008B5B7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73BA41E01C6D9FD3008B5B7B /* Assets.xcassets */; };
 		73BA41E41C6D9FD3008B5B7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73BA41E21C6D9FD3008B5B7B /* Main.storyboard */; };
-		73CCFAB61C7CBA43003F9D5F /* icon_kinnosuke_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CCFAB41C7CBA43003F9D5F /* icon_kinnosuke_black.png */; };
-		73CCFAB71C7CBA43003F9D5F /* icon_kinnosuke_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CCFAB51C7CBA43003F9D5F /* icon_kinnosuke_white.png */; };
 		73CCFABD1C7E05BC003F9D5F /* NSUserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CCFABC1C7E05BC003F9D5F /* NSUserDefaults+Extensions.swift */; };
 		73CCFAC11C7E07F0003F9D5F /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CCFAC01C7E07F0003F9D5F /* ContentViewController.swift */; };
 		73CCFAC71C7E0AEA003F9D5F /* ContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73CCFAC61C7E0AEA003F9D5F /* ContentViewController.xib */; };
@@ -45,8 +48,13 @@
 
 /* Begin PBXFileReference section */
 		732236111C7A242D00B15E61 /* Kanna.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kanna.framework; path = Carthage/Build/Mac/Kanna.framework; sourceTree = "<group>"; };
+		732E6C581C7F46320049F948 /* icon_kinnosuke_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_kinnosuke_white.png; sourceTree = "<group>"; };
+		732E6C591C7F46320049F948 /* icon_kinnosuke_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_kinnosuke_red.png; sourceTree = "<group>"; };
+		732E6C5A1C7F46320049F948 /* icon_kinnosuke_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_kinnosuke_black.png; sourceTree = "<group>"; };
 		7335C7731C7855E500085C7A /* NSColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Extensions.swift"; sourceTree = "<group>"; };
 		7335C7761C794E1300085C7A /* WebConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebConnection.swift; sourceTree = "<group>"; };
+		738486591C816CCF00E0B95F /* NSDate+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extensions.swift"; sourceTree = "<group>"; };
+		7384865B1C81706900E0B95F /* Scraper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scraper.swift; sourceTree = "<group>"; };
 		73AF6A9F1C6DCEC5006E3AE2 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		73AF6AC51C6F59CC006E3AE2 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
 		73AF6ACF1C6F933A006E3AE2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -57,8 +65,6 @@
 		73BA41E01C6D9FD3008B5B7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73BA41E31C6D9FD3008B5B7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		73BA41E51C6D9FD3008B5B7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		73CCFAB41C7CBA43003F9D5F /* icon_kinnosuke_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_kinnosuke_black.png; sourceTree = "<group>"; };
-		73CCFAB51C7CBA43003F9D5F /* icon_kinnosuke_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_kinnosuke_white.png; sourceTree = "<group>"; };
 		73CCFABC1C7E05BC003F9D5F /* NSUserDefaults+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		73CCFAC01C7E07F0003F9D5F /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		73CCFAC61C7E0AEA003F9D5F /* ContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentViewController.xib; sourceTree = "<group>"; };
@@ -84,6 +90,7 @@
 				7335C7731C7855E500085C7A /* NSColor+Extensions.swift */,
 				73E796B01C797141001BAD65 /* Notification.swift */,
 				73CCFABC1C7E05BC003F9D5F /* NSUserDefaults+Extensions.swift */,
+				738486591C816CCF00E0B95F /* NSDate+Extensions.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -92,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				7335C7761C794E1300085C7A /* WebConnection.swift */,
+				7384865B1C81706900E0B95F /* Scraper.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -169,8 +177,9 @@
 		73CCFAA91C7CB5C7003F9D5F /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				73CCFAB41C7CBA43003F9D5F /* icon_kinnosuke_black.png */,
-				73CCFAB51C7CBA43003F9D5F /* icon_kinnosuke_white.png */,
+				732E6C581C7F46320049F948 /* icon_kinnosuke_white.png */,
+				732E6C591C7F46320049F948 /* icon_kinnosuke_red.png */,
+				732E6C5A1C7F46320049F948 /* icon_kinnosuke_black.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -234,11 +243,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				732E6C5B1C7F46320049F948 /* icon_kinnosuke_white.png in Resources */,
+				732E6C5D1C7F46320049F948 /* icon_kinnosuke_black.png in Resources */,
 				73BA41E11C6D9FD3008B5B7B /* Assets.xcassets in Resources */,
-				73CCFAB61C7CBA43003F9D5F /* icon_kinnosuke_black.png in Resources */,
+				732E6C5C1C7F46320049F948 /* icon_kinnosuke_red.png in Resources */,
 				73CCFAC71C7E0AEA003F9D5F /* ContentViewController.xib in Resources */,
 				73BA41E41C6D9FD3008B5B7B /* Main.storyboard in Resources */,
-				73CCFAB71C7CBA43003F9D5F /* icon_kinnosuke_white.png in Resources */,
 				73AF6ADA1C6FA3C4006E3AE2 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,8 +260,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7384865A1C816CCF00E0B95F /* NSDate+Extensions.swift in Sources */,
 				7335C7771C794E1300085C7A /* WebConnection.swift in Sources */,
 				73AF6AD01C6F933A006E3AE2 /* LoginViewController.swift in Sources */,
+				7384865C1C81706900E0B95F /* Scraper.swift in Sources */,
 				73AF6AD31C6F9762006E3AE2 /* CustomMenuButton.swift in Sources */,
 				73E796B11C797141001BAD65 /* Notification.swift in Sources */,
 				73CCFAC11C7E07F0003F9D5F /* ContentViewController.swift in Sources */,
