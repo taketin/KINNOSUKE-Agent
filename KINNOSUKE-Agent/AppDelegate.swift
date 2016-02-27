@@ -26,6 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var loginViewController: LoginViewController
     var popover = NSPopover()
     var notification = Notification()
+    var timer: NSTimer!
 
     // MARK: Initializer
 
@@ -38,6 +39,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         configureStatusItem()
+
+        // NOTE: Set the timer for regularly check.
+        timer = NSTimer(fireDate: NSDate(), interval: PATROL_INTERVAL_SEC, target: self, selector: "patrol:", userInfo: false, repeats: true)
+        NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
@@ -61,6 +66,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
+    deinit {
+        timer.invalidate()
+        timer = nil
+    }
+
     // MARK: Action methods
 
     func togglePopover(sender: AnyObject?) {
@@ -75,7 +85,54 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
+    func patrol(timer: NSTimer) {
+        guard let userInfo = timer.userInfo as? Bool,
+              let _ = NSUserDefaults.userParams()
+        else {
+            return
+        }
+
+        patrol(notifyImmediately: userInfo)
+    }
+
     // MARK: Public methods
+
+    func patrol(notifyImmediately notifyImmediately: Bool = false) {
+        Scraper.AttendanceRecord.forgottenDays { [weak self] response in
+            guard let strongSelf = self else {
+                return
+            }
+
+            switch response {
+            case .Success(let forgottonDays):
+                print("ForgottonDays: \(forgottonDays)")
+                if forgottonDays.count > 0 {
+                    if notifyImmediately || NSDate.isNotificationTime() {
+                        (NSApp.delegate as! AppDelegate).notification.show(
+                            title: "勤怠申請漏れが\(forgottonDays.count)件あります！",
+                            message: "\(WebConnection.basePath)\(WebConnection.attendancePagePath)"
+                        )
+                    }
+
+                    strongSelf.statusItem.image = strongSelf.iconImage(.Warning)
+                } else {
+                    if notifyImmediately {
+                        (NSApp.delegate as! AppDelegate).notification.show(
+                            title: "勤怠申請漏れはありません",
+                            message: "\(WebConnection.basePath)\(WebConnection.attendancePagePath)"
+                        )
+                    }
+                    strongSelf.statusItem.image = strongSelf.iconImage(.Normal)
+                }
+
+            case .Failure(let error):
+                (NSApp.delegate as! AppDelegate).notification.show(
+                    title: "通信に失敗しました",
+                    message: error.description
+                )
+            }
+        }
+    }
 
     func iconImage(state: IconState) -> NSImage {
         switch state {
@@ -115,32 +172,7 @@ extension AppDelegate: NSMenuDelegate {
     }
 
     @IBAction func fetch(sender: AnyObject) {
-        Scraper.AttendanceRecord.forgottenDays { [weak self] response in
-            guard let strongSelf = self else {
-                return
-            }
-
-            switch response {
-            case .Success(let forgottonDays):
-                print("ForgottonDays: \(forgottonDays)")
-                if forgottonDays.count > 0 {
-                    (NSApp.delegate as! AppDelegate).notification.show(
-                        title: "勤怠申請漏れが\(forgottonDays.count)件あります！",
-                        message: "\(WebConnection.basePath)\(WebConnection.attendancePagePath)"
-                    )
-
-                    strongSelf.statusItem.image = strongSelf.iconImage(.Warning)
-                } else {
-                    strongSelf.statusItem.image = strongSelf.iconImage(.Normal)
-                }
-
-            case .Failure(let error):
-                (NSApp.delegate as! AppDelegate).notification.show(
-                    title: "通信に失敗しました",
-                    message: error.description
-                )
-            }
-        }
+        patrol(notifyImmediately: true)
     }
 
     @IBAction func logout(sender: AnyObject) {
