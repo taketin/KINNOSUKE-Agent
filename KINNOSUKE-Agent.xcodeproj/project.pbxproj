@@ -84,20 +84,20 @@
 			isa = PBXGroup;
 			children = (
 				7335C7731C7855E500085C7A /* NSColor+Extensions.swift */,
-				73E796B01C797141001BAD65 /* Notification.swift */,
-				73CCFABC1C7E05BC003F9D5F /* NSUserDefaults+Extensions.swift */,
 				738486591C816CCF00E0B95F /* NSDate+Extensions.swift */,
+				73CCFABC1C7E05BC003F9D5F /* NSUserDefaults+Extensions.swift */,
+				73E796B01C797141001BAD65 /* Notification.swift */,
 			);
-			name = Utility;
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		7335C7751C794DE200085C7A /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				7335C7761C794E1300085C7A /* WebConnection.swift */,
 				7384865B1C81706900E0B95F /* Scraper.swift */,
+				7335C7761C794E1300085C7A /* WebConnection.swift */,
 			);
-			name = Service;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		73AF6ACE1C6F9319006E3AE2 /* ViewController */ = {
@@ -106,7 +106,7 @@
 				73AF6AD41C6FA18D006E3AE2 /* xib */,
 				73AF6ACF1C6F933A006E3AE2 /* LoginViewController.swift */,
 			);
-			name = ViewController;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		73AF6AD11C6F9610006E3AE2 /* UI Component */ = {
@@ -114,7 +114,7 @@
 			children = (
 				73AF6AD21C6F9762006E3AE2 /* CustomMenuButton.swift */,
 			);
-			name = "UI Component";
+			path = "UI Component";
 			sourceTree = "<group>";
 		};
 		73AF6AD41C6FA18D006E3AE2 /* xib */ = {
@@ -122,16 +122,16 @@
 			children = (
 				73AF6AD91C6FA3C4006E3AE2 /* LoginViewController.xib */,
 			);
-			name = xib;
+			path = xib;
 			sourceTree = "<group>";
 		};
 		73BA41D01C6D9FD3008B5B7B = {
 			isa = PBXGroup;
 			children = (
-				732236111C7A242D00B15E61 /* Kanna.framework */,
-				73AF6AC51C6F59CC006E3AE2 /* Alamofire.framework */,
 				73BA41DB1C6D9FD3008B5B7B /* KINNOSUKE-Agent */,
 				73BA41DA1C6D9FD3008B5B7B /* Products */,
+				73AF6AC51C6F59CC006E3AE2 /* Alamofire.framework */,
+				732236111C7A242D00B15E61 /* Kanna.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,15 +147,15 @@
 			isa = PBXGroup;
 			children = (
 				73CCFAA81C7CB5BF003F9D5F /* Resource */,
-				7335C7721C7855D100085C7A /* Utility */,
-				73AF6AD11C6F9610006E3AE2 /* UI Component */,
 				7335C7751C794DE200085C7A /* Service */,
+				73AF6AD11C6F9610006E3AE2 /* UI Component */,
+				7335C7721C7855D100085C7A /* Utility */,
 				73AF6ACE1C6F9319006E3AE2 /* ViewController */,
 				73BA41DC1C6D9FD3008B5B7B /* AppDelegate.swift */,
-				73AF6A9F1C6DCEC5006E3AE2 /* Config.swift */,
 				73BA41E01C6D9FD3008B5B7B /* Assets.xcassets */,
-				73BA41E21C6D9FD3008B5B7B /* Main.storyboard */,
+				73AF6A9F1C6DCEC5006E3AE2 /* Config.swift */,
 				73BA41E51C6D9FD3008B5B7B /* Info.plist */,
+				73BA41E21C6D9FD3008B5B7B /* Main.storyboard */,
 			);
 			path = "KINNOSUKE-Agent";
 			sourceTree = "<group>";
@@ -165,17 +165,17 @@
 			children = (
 				73CCFAA91C7CB5C7003F9D5F /* Image */,
 			);
-			name = Resource;
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		73CCFAA91C7CB5C7003F9D5F /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				732E6C581C7F46320049F948 /* icon_kinnosuke_white.png */,
-				732E6C591C7F46320049F948 /* icon_kinnosuke_red.png */,
 				732E6C5A1C7F46320049F948 /* icon_kinnosuke_black.png */,
+				732E6C591C7F46320049F948 /* icon_kinnosuke_red.png */,
+				732E6C581C7F46320049F948 /* icon_kinnosuke_white.png */,
 			);
-			name = Image;
+			path = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +275,7 @@
 				73BA41E31C6D9FD3008B5B7B /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
