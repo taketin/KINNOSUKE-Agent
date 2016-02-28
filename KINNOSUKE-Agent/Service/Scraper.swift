@@ -48,8 +48,6 @@ class Scraper {
             WebConnection.attendanceRecord { response in
                 switch response {
                 case .Success(let htmlString):
-                    print("Attendance record succeeded.")
-
                     let dateComponent = NSDate.componentsByDate()
                     var forgottonDays = [Day]()
                     let filteredHtmlString = Scraper.filter(htmlString)
@@ -69,25 +67,21 @@ class Scraper {
                                 } else if day == finishContent || Int(day) >= Int(dateComponent.day) {
                                     break CheckTable
                                 }
-                                print("日: \(day)")
 
                             // NOTE: Check to カレンダー
                             case typeOfDayIndex:
-                                print("カレンダー: \(nodeByTd.text!)")
                                 if nodeByTd.text! != dayOfNormal {
                                     continue CheckTable
                                 }
 
                             // NOTE: Check to 届け出内容
                             case todokedeNaiyouColumnIndex:
-                                print("届出: \(nodeByTd.text!)")
                                 if nodeByTd.text! == "" {
                                     status += ForgottenPoint.Todokede.rawValue
                                 }
 
                             // NOTE: Check to 実働時間
                             case jitsudouJikanColumnIndex:
-                                print("実働: \(nodeByTd.text!)")
                                 if nodeByTd.text! == "" {
                                     status += ForgottenPoint.Jitsudou.rawValue
                                 }
@@ -106,7 +100,6 @@ class Scraper {
                     }
 
                 case .Failure(let error):
-                    print("Login failure.")
                     if let completion = completion {
                         completion(.Failure(error))
                     }

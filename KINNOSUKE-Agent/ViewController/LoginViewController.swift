@@ -41,7 +41,6 @@ class LoginViewController: NSViewController {
         WebConnection.login(params) { response in
             switch response {
             case .Success:
-                print("Login succeeded.")
                 (NSApp.delegate as! AppDelegate).notification.show(
                     title: "Succeed !",
                     message: "Login to your 勤乃助"
@@ -52,7 +51,6 @@ class LoginViewController: NSViewController {
                 appDelegate.configureStatusItem()
 
             case .Failure:
-                print("Login failure.")
                 (NSApp.delegate as! AppDelegate).notification.show(
                     title: "Failed login to 勤乃助",
                     message: "Check your input informations."

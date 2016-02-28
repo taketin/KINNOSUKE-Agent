@@ -66,7 +66,6 @@ class WebConnection {
         let isLoginedKeyString = "ログアウト"
 
         Alamofire.request(.POST, WebConnection.basePath, parameters: params).responseString { response in
-            print("Request: \(WebConnection.basePath)")
             switch response.result {
             case .Success(let html):
                 if let response = response.response,
@@ -93,11 +92,9 @@ class WebConnection {
         WebConnection.login(userParams) { response in
             switch response {
             case .Success(let html):
-                print("Login-session succeeded.")
                 completion(.Success(html))
 
             case .Failure:
-                print("Login-session failure.")
                 (NSApp.delegate as! AppDelegate).notification.show(
                     title: "Failed login to 勤乃助",
                     message: "Check your input informations."

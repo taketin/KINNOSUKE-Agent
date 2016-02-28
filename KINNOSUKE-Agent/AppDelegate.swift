@@ -105,7 +105,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
             switch response {
             case .Success(let forgottonDays):
-                print("ForgottonDays: \(forgottonDays)")
                 if forgottonDays.count > 0 {
                     if notifyImmediately || NSDate.isNotificationTime() {
                         (NSApp.delegate as! AppDelegate).notification.show(
