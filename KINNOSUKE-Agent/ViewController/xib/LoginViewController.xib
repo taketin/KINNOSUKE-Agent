@@ -29,7 +29,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="Bq3-oT-tj2"/>
                             </constraints>
-                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="勤乃助 Agent" id="9Ls-9d-PUg">
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="勤之助 Agent" id="9Ls-9d-PUg">
                                 <font key="font" size="17" name=".HiraKakuInterface-W7"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>

@@ -43,7 +43,7 @@ class LoginViewController: NSViewController {
             case .Success:
                 (NSApp.delegate as! AppDelegate).notification.show(
                     title: "Succeed !",
-                    message: "Login to your 勤乃助"
+                    message: "Login to your 勤之助"
                 )
 
                 let appDelegate = (NSApp.delegate as! AppDelegate)
@@ -52,7 +52,7 @@ class LoginViewController: NSViewController {
 
             case .Failure:
                 (NSApp.delegate as! AppDelegate).notification.show(
-                    title: "Failed login to 勤乃助",
+                    title: "Failed login to 勤之助",
                     message: "Check your input informations."
                 )
             }
