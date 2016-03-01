@@ -94,10 +94,10 @@ class WebConnection {
             case .Success(let html):
                 completion(.Success(html))
 
-            case .Failure:
+            case .Failure(let error):
                 (NSApp.delegate as! AppDelegate).notification.show(
                     title: "Failed login to 勤之助",
-                    message: "Check your input informations."
+                    message: error.description
                 )
             }
         }

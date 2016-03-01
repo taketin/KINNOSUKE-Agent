@@ -50,10 +50,10 @@ class LoginViewController: NSViewController {
                 appDelegate.closePopover(nil)
                 appDelegate.configureStatusItem()
 
-            case .Failure:
+            case .Failure(let error):
                 (NSApp.delegate as! AppDelegate).notification.show(
                     title: "Failed login to 勤之助",
-                    message: "Check your input informations."
+                    message: error.description
                 )
             }
         }
