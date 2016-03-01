@@ -1,4 +1,4 @@
-# KINNOSUKE-Agent
+# KINNOSUKE-Agent <img width="26" alt="2016-02-28 22 53 03" src="https://cloud.githubusercontent.com/assets/71396/13423044/ffc672e2-dfdb-11e5-8f98-604b13246af6.png">
 A unofficial tool of KINNOSUKE notifier for mac OS X.
 
 Current βversion.
