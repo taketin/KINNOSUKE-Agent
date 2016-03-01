@@ -140,7 +140,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             if let domain = NSUserDefaults.standardUserDefaults().persistentDomainForName(NSGlobalDomain) {
                 if let style = domain["AppleInterfaceStyle"] as? String {
                     if style == "Dark" {
-                        imageName = "icon_kinnosuke_black"
+                        imageName = "icon_kinnosuke_white"
                     }
                 }
             }
