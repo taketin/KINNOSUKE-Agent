@@ -136,13 +136,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func iconImage(state: IconState) -> NSImage {
         switch state {
         case .Normal:
-            var imageName = "icon_kinnosuke"
+            var imageName = "icon_kinnosuke_black"
             if let domain = NSUserDefaults.standardUserDefaults().persistentDomainForName(NSGlobalDomain) {
                 if let style = domain["AppleInterfaceStyle"] as? String {
                     if style == "Dark" {
-                        imageName += "_white"
-                    } else {
-                        imageName += "_black"
+                        imageName = "icon_kinnosuke_black"
                     }
                 }
             }
