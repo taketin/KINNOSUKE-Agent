@@ -27,6 +27,10 @@
 		73BA41E41C6D9FD3008B5B7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73BA41E21C6D9FD3008B5B7B /* Main.storyboard */; };
 		73CCFABD1C7E05BC003F9D5F /* NSUserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CCFABC1C7E05BC003F9D5F /* NSUserDefaults+Extensions.swift */; };
 		73E796B11C797141001BAD65 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E796B01C797141001BAD65 /* Notification.swift */; };
+		73E7ACC01CD7759D005A1EEA /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73E7ACBF1CD7759D005A1EEA /* RxCocoa.framework */; };
+		73E7ACC11CD7759D005A1EEA /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 73E7ACBF1CD7759D005A1EEA /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		73E7ACC31CD775A4005A1EEA /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73E7ACC21CD775A4005A1EEA /* RxSwift.framework */; };
+		73E7ACC41CD775A4005A1EEA /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 73E7ACC21CD775A4005A1EEA /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +40,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				73E7ACC41CD775A4005A1EEA /* RxSwift.framework in Embed Frameworks */,
+				73E7ACC11CD7759D005A1EEA /* RxCocoa.framework in Embed Frameworks */,
 				732236131C7A242D00B15E61 /* Kanna.framework in Embed Frameworks */,
 				73AF6ACA1C6F59FE006E3AE2 /* Alamofire.framework in Embed Frameworks */,
 			);
@@ -65,6 +71,8 @@
 		73BA41E51C6D9FD3008B5B7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73CCFABC1C7E05BC003F9D5F /* NSUserDefaults+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		73E796B01C797141001BAD65 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		73E7ACBF1CD7759D005A1EEA /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/Mac/RxCocoa.framework; sourceTree = "<group>"; };
+		73E7ACC21CD775A4005A1EEA /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +80,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73E7ACC31CD775A4005A1EEA /* RxSwift.framework in Frameworks */,
+				73E7ACC01CD7759D005A1EEA /* RxCocoa.framework in Frameworks */,
 				732236121C7A242D00B15E61 /* Kanna.framework in Frameworks */,
 				73AF6AC61C6F59CC006E3AE2 /* Alamofire.framework in Frameworks */,
 			);
@@ -130,6 +140,8 @@
 			children = (
 				73BA41DB1C6D9FD3008B5B7B /* KINNOSUKE-Agent */,
 				73BA41DA1C6D9FD3008B5B7B /* Products */,
+				73E7ACC21CD775A4005A1EEA /* RxSwift.framework */,
+				73E7ACBF1CD7759D005A1EEA /* RxCocoa.framework */,
 				73AF6AC51C6F59CC006E3AE2 /* Alamofire.framework */,
 				732236111C7A242D00B15E61 /* Kanna.framework */,
 			);
