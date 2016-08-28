@@ -11,6 +11,7 @@
 		732236131C7A242D00B15E61 /* Kanna.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 732236111C7A242D00B15E61 /* Kanna.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7335C7741C7855E500085C7A /* NSColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7335C7731C7855E500085C7A /* NSColor+Extensions.swift */; };
 		7335C7771C794E1300085C7A /* WebConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7335C7761C794E1300085C7A /* WebConnection.swift */; };
+		734FFC7E1D729188008CC644 /* AppIconViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734FFC7D1D729188008CC644 /* AppIconViewModel.swift */; };
 		7384865A1C816CCF00E0B95F /* NSDate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738486591C816CCF00E0B95F /* NSDate+Extensions.swift */; };
 		7384865C1C81706900E0B95F /* Scraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384865B1C81706900E0B95F /* Scraper.swift */; };
 		73AF6AA01C6DCEC5006E3AE2 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AF6A9F1C6DCEC5006E3AE2 /* Config.swift */; };
@@ -54,6 +55,7 @@
 		732236111C7A242D00B15E61 /* Kanna.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kanna.framework; path = Carthage/Build/Mac/Kanna.framework; sourceTree = "<group>"; };
 		7335C7731C7855E500085C7A /* NSColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Extensions.swift"; sourceTree = "<group>"; };
 		7335C7761C794E1300085C7A /* WebConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebConnection.swift; sourceTree = "<group>"; };
+		734FFC7D1D729188008CC644 /* AppIconViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIconViewModel.swift; sourceTree = "<group>"; };
 		738486591C816CCF00E0B95F /* NSDate+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extensions.swift"; sourceTree = "<group>"; };
 		7384865B1C81706900E0B95F /* Scraper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scraper.swift; sourceTree = "<group>"; };
 		73AF6A9F1C6DCEC5006E3AE2 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -110,6 +112,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		734FFC7C1D729147008CC644 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				734FFC7D1D729188008CC644 /* AppIconViewModel.swift */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
 		73AF6ACE1C6F9319006E3AE2 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +172,7 @@
 				7335C7751C794DE200085C7A /* Service */,
 				73AF6AD11C6F9610006E3AE2 /* UI Component */,
 				7335C7721C7855D100085C7A /* Utility */,
+				734FFC7C1D729147008CC644 /* ViewModel */,
 				73AF6ACE1C6F9319006E3AE2 /* ViewController */,
 				73BA41DC1C6D9FD3008B5B7B /* AppDelegate.swift */,
 				73BA41E01C6D9FD3008B5B7B /* Assets.xcassets */,
@@ -272,6 +283,7 @@
 				73AF6AD31C6F9762006E3AE2 /* CustomMenuButton.swift in Sources */,
 				73E796B11C797141001BAD65 /* Notification.swift in Sources */,
 				7335C7741C7855E500085C7A /* NSColor+Extensions.swift in Sources */,
+				734FFC7E1D729188008CC644 /* AppIconViewModel.swift in Sources */,
 				73CCFABD1C7E05BC003F9D5F /* NSUserDefaults+Extensions.swift in Sources */,
 				73BA41DD1C6D9FD3008B5B7B /* AppDelegate.swift in Sources */,
 				73AF6AA01C6DCEC5006E3AE2 /* Config.swift in Sources */,
