@@ -12,6 +12,9 @@
 		7335C7741C7855E500085C7A /* NSColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7335C7731C7855E500085C7A /* NSColor+Extensions.swift */; };
 		7335C7771C794E1300085C7A /* WebConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7335C7761C794E1300085C7A /* WebConnection.swift */; };
 		734FFC7E1D729188008CC644 /* AppIconViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734FFC7D1D729188008CC644 /* AppIconViewModel.swift */; };
+		734FFC971D72ED0C008CC644 /* KINNOSUKE_AgentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734FFC961D72ED0C008CC644 /* KINNOSUKE_AgentTests.swift */; };
+		734FFCA01D72EDE4008CC644 /* AppIconViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734FFC9F1D72EDE4008CC644 /* AppIconViewModelTests.swift */; };
+		734FFCA11D72F060008CC644 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73E7ACBF1CD7759D005A1EEA /* RxCocoa.framework */; };
 		7384865A1C816CCF00E0B95F /* NSDate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738486591C816CCF00E0B95F /* NSDate+Extensions.swift */; };
 		7384865C1C81706900E0B95F /* Scraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384865B1C81706900E0B95F /* Scraper.swift */; };
 		73AF6AA01C6DCEC5006E3AE2 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AF6A9F1C6DCEC5006E3AE2 /* Config.swift */; };
@@ -33,6 +36,16 @@
 		73E7ACC31CD775A4005A1EEA /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73E7ACC21CD775A4005A1EEA /* RxSwift.framework */; };
 		73E7ACC41CD775A4005A1EEA /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 73E7ACC21CD775A4005A1EEA /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		734FFC991D72ED0C008CC644 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 73BA41D11C6D9FD3008B5B7B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 73BA41D81C6D9FD3008B5B7B;
+			remoteInfo = "KINNOSUKE-Agent";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		73AF6ACB1C6F59FE006E3AE2 /* Embed Frameworks */ = {
@@ -56,6 +69,10 @@
 		7335C7731C7855E500085C7A /* NSColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Extensions.swift"; sourceTree = "<group>"; };
 		7335C7761C794E1300085C7A /* WebConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebConnection.swift; sourceTree = "<group>"; };
 		734FFC7D1D729188008CC644 /* AppIconViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIconViewModel.swift; sourceTree = "<group>"; };
+		734FFC941D72ED0C008CC644 /* KINNOSUKE-AgentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KINNOSUKE-AgentTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		734FFC961D72ED0C008CC644 /* KINNOSUKE_AgentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KINNOSUKE_AgentTests.swift; sourceTree = "<group>"; };
+		734FFC981D72ED0C008CC644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		734FFC9F1D72EDE4008CC644 /* AppIconViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppIconViewModelTests.swift; sourceTree = "<group>"; };
 		738486591C816CCF00E0B95F /* NSDate+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extensions.swift"; sourceTree = "<group>"; };
 		7384865B1C81706900E0B95F /* Scraper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scraper.swift; sourceTree = "<group>"; };
 		73AF6A9F1C6DCEC5006E3AE2 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -78,6 +95,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		734FFC911D72ED0C008CC644 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				734FFCA11D72F060008CC644 /* RxCocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		73BA41D61C6D9FD3008B5B7B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -120,6 +145,24 @@
 			name = ViewModel;
 			sourceTree = "<group>";
 		};
+		734FFC951D72ED0C008CC644 /* KINNOSUKE-AgentTests */ = {
+			isa = PBXGroup;
+			children = (
+				734FFC9E1D72EDC8008CC644 /* ViewModel */,
+				734FFC961D72ED0C008CC644 /* KINNOSUKE_AgentTests.swift */,
+				734FFC981D72ED0C008CC644 /* Info.plist */,
+			);
+			path = "KINNOSUKE-AgentTests";
+			sourceTree = "<group>";
+		};
+		734FFC9E1D72EDC8008CC644 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				734FFC9F1D72EDE4008CC644 /* AppIconViewModelTests.swift */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
 		73AF6ACE1C6F9319006E3AE2 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				73BA41DB1C6D9FD3008B5B7B /* KINNOSUKE-Agent */,
+				734FFC951D72ED0C008CC644 /* KINNOSUKE-AgentTests */,
 				73BA41DA1C6D9FD3008B5B7B /* Products */,
 				73E7ACC21CD775A4005A1EEA /* RxSwift.framework */,
 				73E7ACBF1CD7759D005A1EEA /* RxCocoa.framework */,
@@ -161,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				73BA41D91C6D9FD3008B5B7B /* KINNOSUKE-Agent.app */,
+				734FFC941D72ED0C008CC644 /* KINNOSUKE-AgentTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -204,6 +249,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		734FFC931D72ED0C008CC644 /* KINNOSUKE-AgentTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 734FFC9B1D72ED0C008CC644 /* Build configuration list for PBXNativeTarget "KINNOSUKE-AgentTests" */;
+			buildPhases = (
+				734FFC901D72ED0C008CC644 /* Sources */,
+				734FFC911D72ED0C008CC644 /* Frameworks */,
+				734FFC921D72ED0C008CC644 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				734FFC9A1D72ED0C008CC644 /* PBXTargetDependency */,
+			);
+			name = "KINNOSUKE-AgentTests";
+			productName = "KINNOSUKE-AgentTests";
+			productReference = 734FFC941D72ED0C008CC644 /* KINNOSUKE-AgentTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		73BA41D81C6D9FD3008B5B7B /* KINNOSUKE-Agent */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73BA41E81C6D9FD3008B5B7B /* Build configuration list for PBXNativeTarget "KINNOSUKE-Agent" */;
@@ -228,10 +291,14 @@
 		73BA41D11C6D9FD3008B5B7B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = taketin;
 				TargetAttributes = {
+					734FFC931D72ED0C008CC644 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 73BA41D81C6D9FD3008B5B7B;
+					};
 					73BA41D81C6D9FD3008B5B7B = {
 						CreatedOnToolsVersion = 7.2;
 					};
@@ -251,11 +318,19 @@
 			projectRoot = "";
 			targets = (
 				73BA41D81C6D9FD3008B5B7B /* KINNOSUKE-Agent */,
+				734FFC931D72ED0C008CC644 /* KINNOSUKE-AgentTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		734FFC921D72ED0C008CC644 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		73BA41D71C6D9FD3008B5B7B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -272,6 +347,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		734FFC901D72ED0C008CC644 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				734FFC971D72ED0C008CC644 /* KINNOSUKE_AgentTests.swift in Sources */,
+				734FFCA01D72EDE4008CC644 /* AppIconViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		73BA41D51C6D9FD3008B5B7B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -292,6 +376,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		734FFC9A1D72ED0C008CC644 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 73BA41D81C6D9FD3008B5B7B /* KINNOSUKE-Agent */;
+			targetProxy = 734FFC991D72ED0C008CC644 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		73BA41E21C6D9FD3008B5B7B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -305,6 +397,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		734FFC9C1D72ED0C008CC644 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = "KINNOSUKE-AgentTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "in.taket.KINNOSUKE-AgentTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KINNOSUKE-Agent.app/Contents/MacOS/KINNOSUKE-Agent";
+			};
+			name = Debug;
+		};
+		734FFC9D1D72ED0C008CC644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = "KINNOSUKE-AgentTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "in.taket.KINNOSUKE-AgentTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KINNOSUKE-Agent.app/Contents/MacOS/KINNOSUKE-Agent";
+			};
+			name = Release;
+		};
 		73BA41E61C6D9FD3008B5B7B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -422,6 +550,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		734FFC9B1D72ED0C008CC644 /* Build configuration list for PBXNativeTarget "KINNOSUKE-AgentTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				734FFC9C1D72ED0C008CC644 /* Debug */,
+				734FFC9D1D72ED0C008CC644 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		73BA41D41C6D9FD3008B5B7B /* Build configuration list for PBXProject "KINNOSUKE-Agent" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
