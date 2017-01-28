@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="LoginViewController" customModule="KINNOSUKE_Agent" customModuleProvider="target">
             <connections>
                 <outlet property="_companyIdForm" destination="Ke7-ZJ-BTq" id="djM-qC-jY9"/>
+                <outlet property="_loginButton" destination="9nx-Io-GbM" id="4ut-Vz-F7t"/>
                 <outlet property="_passwordForm" destination="wUI-6n-rAb" id="hrQ-Bk-Awd"/>
                 <outlet property="_titleContainer" destination="fOk-4n-9yu" id="oEq-HV-IhY"/>
                 <outlet property="_userIdForm" destination="807-qv-KuU" id="UER-1Y-AWZ"/>
@@ -139,9 +140,6 @@ EBDjgYrlrqLmp5hJRA
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
-                            <connections>
-                                <action selector="didTouchLoginButton:" target="-2" id="aAW-A9-Qdq"/>
-                            </connections>
                         </button>
                     </subviews>
                     <constraints>
