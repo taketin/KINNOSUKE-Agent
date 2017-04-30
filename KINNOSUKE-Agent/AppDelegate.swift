@@ -6,10 +6,10 @@
 //  Copyright © 2016年 taketin. All rights reserved.
 //
 
-import AppKit
+import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject {
 
     enum IconState {
         case normal, warning
@@ -33,19 +33,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     override init() {
         loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)!
         popover.contentViewController = loginViewController
-    }
-
-    // MARK: Lifecycle
-
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
-        configureStatusItem()
-
-        // NOTE: Set the timer for regularly check.
-        timer = Timer(fireAt: Date(), interval: PATROL_INTERVAL_SEC, target: self, selector: "patrol:", userInfo: false, repeats: true)
-        RunLoop.current.add(timer, forMode: RunLoopMode.defaultRunLoopMode)
-    }
-
-    func applicationWillTerminate(_ aNotification: Notification) {
     }
 
     func configureStatusItem() {
@@ -160,6 +147,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.performClose(sender)
     }
 
+}
+
+extension AppDelegate: NSApplicationDelegate {
+    // MARK: Lifecycle
+
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
+        configureStatusItem()
+
+        // NOTE: Set the timer for regularly check.
+        timer = Timer(fireAt: Date(), interval: PATROL_INTERVAL_SEC, target: self, selector: #selector(AppDelegate.patrol(_:)), userInfo: false, repeats: true)
+        RunLoop.current.add(timer, forMode: RunLoopMode.defaultRunLoopMode)
+    }
+
+    func applicationWillTerminate(_ aNotification: Notification) {
+    }
 }
 
 extension AppDelegate: NSMenuDelegate {
