@@ -9,9 +9,9 @@
 import AppKit
 
 class CustomMenuButton: NSButton {
-    var rightMouseDownAction:(NSEvent -> ())?
+    var rightMouseDownAction:((NSEvent) -> ())?
 
-    override func rightMouseDown(theEvent: NSEvent) {
+    override func rightMouseDown(with theEvent: NSEvent) {
         if let rightMouseDownAction = rightMouseDownAction {
             rightMouseDownAction(theEvent)
         }

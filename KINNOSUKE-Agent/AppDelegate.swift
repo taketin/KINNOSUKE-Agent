@@ -6,13 +6,13 @@
 //  Copyright © 2016年 taketin. All rights reserved.
 //
 
-import AppKit
+import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject {
 
     enum IconState {
-        case Normal, Warning
+        case normal, warning
     }
 
     // MARK: IBOutlets
@@ -22,11 +22,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: Properties
 
     var statusButton: CustomMenuButton!
-    var statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
+    var statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
     var loginViewController: LoginViewController
     var popover = NSPopover()
     var notification = Notification()
-    var timer: NSTimer!
+    var timer: Timer!
 
     // MARK: Initializer
 
@@ -35,33 +35,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.contentViewController = loginViewController
     }
 
-    // MARK: Lifecycle
-
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
-        configureStatusItem()
-
-        // NOTE: Set the timer for regularly check.
-        timer = NSTimer(fireDate: NSDate(), interval: PATROL_INTERVAL_SEC, target: self, selector: "patrol:", userInfo: false, repeats: true)
-        NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
-    }
-
-    func applicationWillTerminate(aNotification: NSNotification) {
-    }
-
     func configureStatusItem() {
         statusItem.highlightMode = true
 
-        if let _ = NSUserDefaults.userParams() {
+        if let _ = UserDefaults.userParams() {
             statusItem.view = nil
-            statusItem.image = iconImage(.Normal)
+            statusItem.image = iconImage(.normal)
             statusItem.menu = _statusMenu
         } else {
             statusButton = CustomMenuButton(frame: CGRect(x: 0,y: 0, width: 18, height: 18))
-            statusButton.image = iconImage(.Normal)
-            statusButton.bordered = false
+            statusButton.image = iconImage(.normal)
+            statusButton.isBordered = false
             statusButton.target = self
             statusButton.rightMouseDownAction = { _ in }
-            statusButton.action = "togglePopover:"
+            statusButton.action = #selector(AppDelegate.togglePopover(_:))
             statusItem.view = statusButton
         }
     }
@@ -73,11 +60,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     // MARK: Action methods
 
-    func togglePopover(sender: AnyObject?) {
-        if let _ = NSUserDefaults.userParams() {
+    func togglePopover(_ sender: AnyObject?) {
+        if let _ = UserDefaults.userParams() {
             configureStatusItem()
         } else {
-            if popover.shown {
+            if popover.isShown {
                 closePopover(sender)
             } else {
                 showPopover(sender)
@@ -85,9 +72,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    func patrol(timer: NSTimer) {
+    func patrol(_ timer: Timer) {
         guard let userInfo = timer.userInfo as? Bool,
-              let _ = NSUserDefaults.userParams()
+              let _ = UserDefaults.userParams()
         else {
             return
         }
@@ -97,23 +84,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     // MARK: Public methods
 
-    func patrol(notifyImmediately notifyImmediately: Bool = false) {
+    func patrol(notifyImmediately: Bool = false) {
         Scraper.AttendanceRecord.forgottenDays { [weak self] response in
             guard let strongSelf = self else {
                 return
             }
 
             switch response {
-            case .Success(let forgottonDays):
+            case .success(let forgottonDays):
                 if forgottonDays.count > 0 {
-                    if notifyImmediately || NSDate.isNotificationTime() {
+                    if notifyImmediately || Date.isNotificationTime() {
                         (NSApp.delegate as! AppDelegate).notification.show(
                             title: "勤怠申請漏れが\(forgottonDays.count)件あります！",
                             message: "\(WebConnection.basePath)\(WebConnection.attendancePagePath)"
                         )
                     }
 
-                    strongSelf.statusItem.image = strongSelf.iconImage(.Warning)
+                    strongSelf.statusItem.image = strongSelf.iconImage(.warning)
                 } else {
                     if notifyImmediately {
                         (NSApp.delegate as! AppDelegate).notification.show(
@@ -121,23 +108,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                             message: "\(WebConnection.basePath)\(WebConnection.attendancePagePath)"
                         )
                     }
-                    strongSelf.statusItem.image = strongSelf.iconImage(.Normal)
+                    strongSelf.statusItem.image = strongSelf.iconImage(.normal)
                 }
 
-            case .Failure(let error):
+            case .failure(let error):
                 (NSApp.delegate as! AppDelegate).notification.show(
                     title: "通信に失敗しました",
-                    message: error.description
+                    message: error.localizedDescription
                 )
             }
         }
     }
 
-    func iconImage(state: IconState) -> NSImage {
+    func iconImage(_ state: IconState) -> NSImage {
         switch state {
-        case .Normal:
+        case .normal:
             var imageName = "icon_kinnosuke_black"
-            if let domain = NSUserDefaults.standardUserDefaults().persistentDomainForName(NSGlobalDomain) {
+            if let domain = UserDefaults.standard.persistentDomain(forName: UserDefaults.globalDomain) {
                 if let style = domain["AppleInterfaceStyle"] as? String {
                     if style == "Dark" {
                         imageName = "icon_kinnosuke_white"
@@ -147,32 +134,47 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
             return NSImage(named: imageName)!
 
-        case .Warning:
+        case .warning:
             return NSImage(named: "icon_kinnosuke_red")!
         }
     }
 
-    func showPopover(sender: AnyObject?) {
-        popover.showRelativeToRect(statusButton.bounds, ofView: statusButton, preferredEdge: .MinY)
+    func showPopover(_ sender: AnyObject?) {
+        popover.show(relativeTo: statusButton.bounds, of: statusButton, preferredEdge: .minY)
     }
 
-    func closePopover(sender: AnyObject?) {
+    func closePopover(_ sender: AnyObject?) {
         popover.performClose(sender)
     }
 
 }
 
+extension AppDelegate: NSApplicationDelegate {
+    // MARK: Lifecycle
+
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
+        configureStatusItem()
+
+        // NOTE: Set the timer for regularly check.
+        timer = Timer(fireAt: Date(), interval: PATROL_INTERVAL_SEC, target: self, selector: #selector(AppDelegate.patrol(_:)), userInfo: false, repeats: true)
+        RunLoop.current.add(timer, forMode: RunLoopMode.defaultRunLoopMode)
+    }
+
+    func applicationWillTerminate(_ aNotification: Notification) {
+    }
+}
+
 extension AppDelegate: NSMenuDelegate {
-    func menuWillOpen(menu: NSMenu) {
+    func menuWillOpen(_ menu: NSMenu) {
         // MEMO: If user defaults cleanup, will the menu change.
         configureStatusItem()
     }
 
-    @IBAction func fetch(sender: AnyObject) {
+    @IBAction func fetch(_ sender: AnyObject) {
         patrol(notifyImmediately: true)
     }
 
-    @IBAction func logout(sender: AnyObject) {
-        NSUserDefaults.deleteUserParams()
+    @IBAction func logout(_ sender: AnyObject) {
+        UserDefaults.deleteUserParams()
     }
 }
