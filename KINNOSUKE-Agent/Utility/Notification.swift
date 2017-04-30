@@ -9,37 +9,37 @@
 import AppKit
 
 class Notification: NSObject {
-    private var _center: NSUserNotificationCenter
+    fileprivate var _center: NSUserNotificationCenter
 
     // MARK: Iitializer
 
     override init() {
-        _center = NSUserNotificationCenter.defaultUserNotificationCenter()
+        _center = NSUserNotificationCenter.default
         super.init()
         _center.delegate = self
     }
 
     // MARK: Public methods
 
-    func show(title title: String, message: String) {
+    func show(title: String, message: String) {
         let notification = NSUserNotification()
         notification.title = title
         notification.informativeText = message
 
-        _center.deliverNotification(notification)
+        _center.deliver(notification)
     }
 }
 
 extension Notification: NSUserNotificationCenterDelegate {
-    func userNotificationCenter(center: NSUserNotificationCenter, shouldPresentNotification notification: NSUserNotification) -> Bool {
+    func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
         return true
     }
 
-    func userNotificationCenter(center: NSUserNotificationCenter, didActivateNotification notification: NSUserNotification) {
+    func userNotificationCenter(_ center: NSUserNotificationCenter, didActivate notification: NSUserNotification) {
         if let urlString = notification.informativeText,
-           let url = NSURL(string: urlString)
+           let url = URL(string: urlString)
         {
-            NSWorkspace.sharedWorkspace().openURL(url)
+            NSWorkspace.shared().open(url)
         }
     }
 }

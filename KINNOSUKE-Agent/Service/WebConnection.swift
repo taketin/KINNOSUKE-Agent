@@ -25,7 +25,7 @@ class WebConnection {
         case UserID = "y_logincd"
         case Password = "password"
 
-        static func build(companyId companyId: String, userId: String, password: String) -> [String: String] {
+        static func build(companyId: String, userId: String, password: String) -> [String: String] {
             let params = [
                 CompanyID.rawValue: companyId,
                 UserID.rawValue: userId,
@@ -38,18 +38,18 @@ class WebConnection {
 
     // MARK: Cookie and User parameters
 
-    class func setCookie(response: NSHTTPURLResponse) -> Bool {
-        let cookies = NSHTTPCookie.cookiesWithResponseHeaderFields(
-            response.allHeaderFields as! [String: String],
-            forURL: response.URL!
+    class func setCookie(_ response: HTTPURLResponse) -> Bool {
+        let cookies = HTTPCookie.cookies(
+            withResponseHeaderFields: response.allHeaderFields as! [String: String],
+            for: response.url!
         )
 
         cookies.forEach {
-            NSHTTPCookieStorage.sharedHTTPCookieStorage().setCookie($0)
+            HTTPCookieStorage.shared.setCookie($0)
         }
 
-        let sessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        sessionConfiguration.HTTPCookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
+        let sessionConfiguration = URLSessionConfiguration.default
+        sessionConfiguration.httpCookieStorage = HTTPCookieStorage.shared
 
         _ = Alamofire.Manager(configuration: sessionConfiguration)
         
@@ -62,39 +62,38 @@ class WebConnection {
      * NOTE: Params have 3 parameters
      *  (company id, user id, password)
      */
-    class func login(params: [String: String], completion: Result<HTML, NSError> -> ()) {
+    class func login(_ params: [String: String], completion: (Result<HTML, NSError>) -> ()) {
         let isLoginedKeyString = "ログアウト"
 
         Alamofire.request(.POST, WebConnection.basePath, parameters: params).responseString { response in
             switch response.result {
-            case .Success(let html):
+            case .success(let html):
                 if let response = response.response,
-                   let _ = html.rangeOfString(isLoginedKeyString)
-                   where setCookie(response)
+                   let _ = html.range(of: isLoginedKeyString), setCookie(response)
                 {
-                    NSUserDefaults.storeUserData(params)
-                    completion(.Success(html))
+                    UserDefaults.storeUserData(params)
+                    completion(.success(html))
                 } else {
-                    completion(.Failure(NSError(domain: "login", code: 1000, userInfo: nil)))
+                    completion(.failure(NSError(domain: "login", code: 1000, userInfo: nil)))
                 }
 
-            case .Failure(let error):
-                completion(.Failure(error))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }
 
-    class func loginSession(completion: Result<HTML, NSError> -> ()) {
-        guard let userParams = NSUserDefaults.userParams() else {
-            return completion(.Failure(NSError(domain: "login-session", code: 1000, userInfo: nil)))
+    class func loginSession(_ completion: (Result<HTML, NSError>) -> ()) {
+        guard let userParams = UserDefaults.userParams() else {
+            return completion(.failure(NSError(domain: "login-session", code: 1000, userInfo: nil)))
         }
 
         WebConnection.login(userParams) { response in
             switch response {
-            case .Success(let html):
-                completion(.Success(html))
+            case .success(let html):
+                completion(.success(html))
 
-            case .Failure(let error):
+            case .failure(let error):
                 (NSApp.delegate as! AppDelegate).notification.show(
                     title: "Failed login to 勤之助",
                     message: error.description
@@ -103,10 +102,10 @@ class WebConnection {
         }
     }
 
-    class func attendanceRecord(completion: Result<HTML, NSError> -> ()) {
+    class func attendanceRecord(_ completion: (Result<HTML, NSError>) -> ()) {
         loginSession { response in
             switch response {
-            case .Success:
+            case .success:
                 let params = [
                     "module": "timesheet",
                     "action": "browse"
@@ -114,15 +113,15 @@ class WebConnection {
 
                 Alamofire.request(.GET, "\(WebConnection.basePath)", parameters: params).responseString { response in
                     switch response.result {
-                    case .Success(let html):
-                        completion(.Success(html))
+                    case .success(let html):
+                        completion(.success(html))
 
-                    case .Failure(let error):
-                        completion(.Failure(error))
+                    case .failure(let error):
+                        completion(.failure(error))
                     }
                 }
-            case .Failure(let error):
-                completion(.Failure(error))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }

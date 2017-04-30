@@ -12,10 +12,10 @@ class LoginViewController: NSViewController {
 
     // MARK: IBOutlets
 
-    @IBOutlet weak private var _titleContainer: NSView!
-    @IBOutlet weak private var _companyIdForm: NSTextField!
-    @IBOutlet weak private var _userIdForm: NSTextField!
-    @IBOutlet weak private var _passwordForm: NSTextField!
+    @IBOutlet weak fileprivate var _titleContainer: NSView!
+    @IBOutlet weak fileprivate var _companyIdForm: NSTextField!
+    @IBOutlet weak fileprivate var _userIdForm: NSTextField!
+    @IBOutlet weak fileprivate var _passwordForm: NSTextField!
 
     // MARK: Lifecycle
 
@@ -23,7 +23,7 @@ class LoginViewController: NSViewController {
         super.viewDidLoad()
 
         let titleViewLayer = CALayer()
-        titleViewLayer.backgroundColor = NSColor.hex(0x963121).CGColor
+        titleViewLayer.backgroundColor = NSColor.hex(0x963121).cgColor
         _titleContainer.wantsLayer = true
         _titleContainer.layer = titleViewLayer
 
@@ -31,7 +31,7 @@ class LoginViewController: NSViewController {
 
     // MARK: Action methods
 
-    @IBAction func didTouchLoginButton(sender: AnyObject) {
+    @IBAction func didTouchLoginButton(_ sender: AnyObject) {
         let params = WebConnection.LoginParameters.build(
             companyId: _companyIdForm.stringValue,
             userId: _userIdForm.stringValue,
@@ -40,7 +40,7 @@ class LoginViewController: NSViewController {
 
         WebConnection.login(params) { response in
             switch response {
-            case .Success:
+            case .success:
                 (NSApp.delegate as! AppDelegate).notification.show(
                     title: "Succeed !",
                     message: "Login to your 勤之助"
@@ -50,7 +50,7 @@ class LoginViewController: NSViewController {
                 appDelegate.closePopover(nil)
                 appDelegate.configureStatusItem()
 
-            case .Failure(let error):
+            case .failure(let error):
                 (NSApp.delegate as! AppDelegate).notification.show(
                     title: "Failed login to 勤之助",
                     message: error.description

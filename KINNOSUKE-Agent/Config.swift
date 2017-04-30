@@ -11,4 +11,4 @@ import Foundation
 let AppName = "KINNOSUKE-Agent"
 let TARGET_SITE_SCHEME = "https://"
 let TARGET_SITE_URL = "www.4628.jp"
-let PATROL_INTERVAL_SEC: NSTimeInterval = 60 * 120
+let PATROL_INTERVAL_SEC: TimeInterval = 60 * 120

@@ -8,20 +8,20 @@
 
 import Foundation
 
-extension NSUserDefaults {
+extension UserDefaults {
     typealias USER_PARAMS = [String: String]
     @nonobjc static let userParamsKey = "KINNOSUKE-Agent_user_params"
 
     // MARK: Class methods
 
-    class func storeUserData(userParams: USER_PARAMS) {
-        let userParamsData = NSKeyedArchiver.archivedDataWithRootObject(userParams)
-        NSUserDefaults.standardUserDefaults().setObject(userParamsData, forKey: NSUserDefaults.userParamsKey)
+    class func storeUserData(_ userParams: USER_PARAMS) {
+        let userParamsData = NSKeyedArchiver.archivedData(withRootObject: userParams)
+        UserDefaults.standard.set(userParamsData, forKey: UserDefaults.userParamsKey)
     }
 
     class func userParams() -> USER_PARAMS? {
-        guard let userParamsData = NSUserDefaults.standardUserDefaults().objectForKey(NSUserDefaults.userParamsKey) as? NSData,
-              let userParams = NSKeyedUnarchiver.unarchiveObjectWithData(userParamsData) as? USER_PARAMS
+        guard let userParamsData = UserDefaults.standard.object(forKey: UserDefaults.userParamsKey) as? Data,
+              let userParams = NSKeyedUnarchiver.unarchiveObject(with: userParamsData) as? USER_PARAMS
         else {
             return nil
         }
@@ -30,6 +30,6 @@ extension NSUserDefaults {
     }
 
     class func deleteUserParams() {
-        NSUserDefaults.standardUserDefaults().removeObjectForKey(NSUserDefaults.userParamsKey)
+        UserDefaults.standard.removeObject(forKey: UserDefaults.userParamsKey)
     }
 }
