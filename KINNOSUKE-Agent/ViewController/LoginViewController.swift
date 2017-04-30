@@ -21,12 +21,13 @@ class LoginViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.wantsLayer = true
+    }
 
-        let titleViewLayer = CALayer()
-        titleViewLayer.backgroundColor = NSColor.hex(0x963121).cgColor
+    override func viewWillAppear() {
+        super.viewWillAppear()
         _titleContainer.wantsLayer = true
-        _titleContainer.layer = titleViewLayer
-
+        _titleContainer.layer?.backgroundColor = NSColor.hex(0x963121).cgColor
     }
 
     // MARK: Action methods

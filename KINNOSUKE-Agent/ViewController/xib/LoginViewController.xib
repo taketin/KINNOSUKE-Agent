@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="LoginViewController" customModule="KINNOSUKE_Agent" customModuleProvider="target">
@@ -24,15 +25,15 @@
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="fOk-4n-9yu" userLabel="Title Container">
                     <rect key="frame" x="0.0" y="196" width="300" height="50"/>
                     <subviews>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bjg-52-ia9">
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bjg-52-ia9">
                             <rect key="frame" x="97" y="15" width="106" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="Bq3-oT-tj2"/>
                             </constraints>
-                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="勤之助 Agent" id="9Ls-9d-PUg">
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="勤之助 Agent" drawsBackground="YES" id="9Ls-9d-PUg">
                                 <font key="font" size="17" name=".HiraKakuInterface-W7"/>
-                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                             </textFieldCell>
                         </textField>
                     </subviews>
@@ -46,7 +47,7 @@
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="HlN-Sm-H35" userLabel="Field Name Container">
                     <rect key="frame" x="0.0" y="50" width="120" height="146"/>
                     <subviews>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kEk-nv-dAv">
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEk-nv-dAv">
                             <rect key="frame" x="59" y="109" width="53" height="13"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="IZd-X7-rQ0">
                                 <font key="font" size="13" name=".HiraKakuInterface-W3"/>
@@ -57,7 +58,7 @@ EBDjgYrlrqLmp5hJRA
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kG9-Zq-U8X">
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kG9-Zq-U8X">
                             <rect key="frame" x="49" y="67" width="63" height="13"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="ログインID" id="zts-An-PT5">
                                 <font key="font" size="13" name=".HiraKakuInterface-W3"/>
@@ -65,7 +66,7 @@ EBDjgYrlrqLmp5hJRA
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zv3-aL-a57">
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zv3-aL-a57">
                             <rect key="frame" x="48" y="25" width="64" height="13"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="パスワード" id="ASV-lR-D0e">
                                 <font key="font" size="13" name=".HiraKakuInterface-W3"/>
@@ -83,7 +84,7 @@ EBDjgYrlrqLmp5hJRA
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="eVT-T6-Ct4" userLabel="Form Container">
                     <rect key="frame" x="120" y="50" width="180" height="146"/>
                     <subviews>
-                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ke7-ZJ-BTq">
+                        <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ke7-ZJ-BTq">
                             <rect key="frame" x="10" y="104" width="120" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="120" id="23y-bA-OFk"/>
@@ -94,7 +95,7 @@ EBDjgYrlrqLmp5hJRA
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="807-qv-KuU">
+                        <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="807-qv-KuU">
                             <rect key="frame" x="10" y="62" width="120" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="120" id="4Fa-sD-D5a"/>
@@ -105,7 +106,7 @@ EBDjgYrlrqLmp5hJRA
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <secureTextField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wUI-6n-rAb">
+                        <secureTextField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUI-6n-rAb">
                             <rect key="frame" x="10" y="20" width="120" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="120" id="FHK-PV-DIc"/>
