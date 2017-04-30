@@ -7,31 +7,23 @@
 //
 
 import AppKit
-import RxSwift
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    // MARK: Enums
-
-    enum InterfaceStyle {
-        case Light, Dark
+    enum IconState {
+        case Normal, Warning
     }
 
     // MARK: IBOutlets
 
     @IBOutlet weak var _statusMenu: NSMenu!
 
-    // MARK: Constants
-
-    private let disposeBag = DisposeBag()
-
     // MARK: Properties
 
     var statusButton: CustomMenuButton!
     var statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
     var loginViewController: LoginViewController
-    var appIconViewModel = AppIconViewModel()
     var popover = NSPopover()
     var notification = Notification()
     var timer: NSTimer!
@@ -61,19 +53,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         if let _ = NSUserDefaults.userParams() {
             statusItem.view = nil
+            statusItem.image = iconImage(.Normal)
             statusItem.menu = _statusMenu
         } else {
             statusButton = CustomMenuButton(frame: CGRect(x: 0,y: 0, width: 18, height: 18))
+            statusButton.image = iconImage(.Normal)
             statusButton.bordered = false
             statusButton.target = self
             statusButton.rightMouseDownAction = { _ in }
             statusButton.action = "togglePopover:"
             statusItem.view = statusButton
         }
-
-        appIconViewModel.iconImage.subscribeNext { [unowned self] image in
-            self.statusItem.image = image
-        }.addDisposableTo(disposeBag)
     }
 
     deinit {
@@ -115,7 +105,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
             switch response {
             case .Success(let forgottonDays):
-                let iconState: AppIconViewModel.State
                 if forgottonDays.count > 0 {
                     if notifyImmediately || NSDate.isNotificationTime() {
                         (NSApp.delegate as! AppDelegate).notification.show(
@@ -124,7 +113,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                         )
                     }
 
-                    iconState = .Warning
+                    strongSelf.statusItem.image = strongSelf.iconImage(.Warning)
                 } else {
                     if notifyImmediately {
                         (NSApp.delegate as! AppDelegate).notification.show(
@@ -132,11 +121,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                             message: "\(WebConnection.basePath)\(WebConnection.attendancePagePath)"
                         )
                     }
-
-                    iconState = .Normal
+                    strongSelf.statusItem.image = strongSelf.iconImage(.Normal)
                 }
-
-                strongSelf.appIconViewModel.change(state: iconState)
 
             case .Failure(let error):
                 (NSApp.delegate as! AppDelegate).notification.show(
@@ -144,6 +130,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     message: error.description
                 )
             }
+        }
+    }
+
+    func iconImage(state: IconState) -> NSImage {
+        switch state {
+        case .Normal:
+            var imageName = "icon_kinnosuke_black"
+            if let domain = NSUserDefaults.standardUserDefaults().persistentDomainForName(NSGlobalDomain) {
+                if let style = domain["AppleInterfaceStyle"] as? String {
+                    if style == "Dark" {
+                        imageName = "icon_kinnosuke_white"
+                    }
+                }
+            }
+
+            return NSImage(named: imageName)!
+
+        case .Warning:
+            return NSImage(named: "icon_kinnosuke_red")!
         }
     }
 
@@ -155,17 +160,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.performClose(sender)
     }
 
-    // MARK: Static methods
-
-    static func interfaceStyle() -> InterfaceStyle {
-        if let domain = NSUserDefaults.standardUserDefaults().persistentDomainForName(NSGlobalDomain) {
-            if let style = domain["AppleInterfaceStyle"] as? String {
-                return style == "Dark" ? .Dark : .Light
-            }
-        }
-
-        return .Light
-    }
 }
 
 extension AppDelegate: NSMenuDelegate {

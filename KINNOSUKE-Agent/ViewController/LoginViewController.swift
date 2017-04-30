@@ -7,8 +7,6 @@
 //
 
 import AppKit
-import RxSwift
-import RxCocoa
 
 class LoginViewController: NSViewController {
 
@@ -18,11 +16,6 @@ class LoginViewController: NSViewController {
     @IBOutlet weak private var _companyIdForm: NSTextField!
     @IBOutlet weak private var _userIdForm: NSTextField!
     @IBOutlet weak private var _passwordForm: NSTextField!
-    @IBOutlet weak private var _loginButton: NSButton!
-
-    // MARK: Constants
-
-    let disposeBag = DisposeBag()
 
     // MARK: Lifecycle
 
@@ -34,35 +27,37 @@ class LoginViewController: NSViewController {
         _titleContainer.wantsLayer = true
         _titleContainer.layer = titleViewLayer
 
-        _loginButton.rx_tap
-                    .subscribeNext { [unowned self] in
-                        let params = WebConnection.LoginParameters.build(
-                            companyId: self._companyIdForm.stringValue,
-                            userId: self._userIdForm.stringValue,
-                            password: self._passwordForm.stringValue
-                        )
+    }
 
-                        WebConnection.login(params) { response in
-                            switch response {
-                            case .Success:
-                                (NSApp.delegate as! AppDelegate).notification.show(
-                                    title: "Succeed !",
-                                    message: "Login to your 勤之助"
-                                )
+    // MARK: Action methods
 
-                                let appDelegate = (NSApp.delegate as! AppDelegate)
-                                appDelegate.closePopover(nil)
-                                appDelegate.configureStatusItem()
-                                
-                            case .Failure(let error):
-                                (NSApp.delegate as! AppDelegate).notification.show(
-                                    title: "Failed login to 勤之助",
-                                    message: error.description
-                                )
-                            }
-                        }
-                    }
-                    .addDisposableTo(disposeBag)
+    @IBAction func didTouchLoginButton(sender: AnyObject) {
+        let params = WebConnection.LoginParameters.build(
+            companyId: _companyIdForm.stringValue,
+            userId: _userIdForm.stringValue,
+            password: _passwordForm.stringValue
+        )
+
+        WebConnection.login(params) { response in
+            switch response {
+            case .Success:
+                (NSApp.delegate as! AppDelegate).notification.show(
+                    title: "Succeed !",
+                    message: "Login to your 勤之助"
+                )
+
+                let appDelegate = (NSApp.delegate as! AppDelegate)
+                appDelegate.closePopover(nil)
+                appDelegate.configureStatusItem()
+
+            case .Failure(let error):
+                (NSApp.delegate as! AppDelegate).notification.show(
+                    title: "Failed login to 勤之助",
+                    message: error.description
+                )
+            }
+        }
+
     }
 
 }
