@@ -127,7 +127,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             case .failure(let error):
                 (NSApp.delegate as! AppDelegate).notification.show(
                     title: "通信に失敗しました",
-                    message: error.description
+                    message: error.localizedDescription
                 )
             }
         }

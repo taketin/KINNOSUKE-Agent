@@ -67,7 +67,7 @@ class Scraper {
 
         // MARK: Static methods
 
-        static func forgottenDays(_ completion: ((Result<[Day], NSError>) -> ())?) {
+        static func forgottenDays(_ completion: ((Result<[Day]>) -> ())?) {
 
             WebConnection.attendanceRecord { response in
                 switch response {
@@ -88,7 +88,7 @@ class Scraper {
                                 day = nodeByTd.text!
                                 if day == skipContent {
                                     continue CheckTable
-                                } else if day == finishContent || Int(day) >= Int(dateComponent.day) {
+                                } else if day == finishContent || Int(day) >= Int(dateComponent.day!) {
                                     break CheckTable
                                 }
 

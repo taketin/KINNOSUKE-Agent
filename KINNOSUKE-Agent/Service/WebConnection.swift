@@ -51,7 +51,7 @@ class WebConnection {
         let sessionConfiguration = URLSessionConfiguration.default
         sessionConfiguration.httpCookieStorage = HTTPCookieStorage.shared
 
-        _ = Alamofire.Manager(configuration: sessionConfiguration)
+        _ = Alamofire.SessionManager(configuration: sessionConfiguration)
         
         return true
     }
@@ -59,13 +59,13 @@ class WebConnection {
     // MARK: Requests
 
     /**
-     * NOTE: Params have 3 parameters
+     * NOTE: Params has 3 parameters
      *  (company id, user id, password)
      */
-    class func login(_ params: [String: String], completion: (Result<HTML, NSError>) -> ()) {
+    class func login(_ params: [String: String], completion: @escaping (Result<HTML>) -> ()) {
         let isLoginedKeyString = "ログアウト"
 
-        Alamofire.request(.POST, WebConnection.basePath, parameters: params).responseString { response in
+        Alamofire.request(WebConnection.basePath, method: .post, parameters: params).responseString { response in
             switch response.result {
             case .success(let html):
                 if let response = response.response,
@@ -83,7 +83,7 @@ class WebConnection {
         }
     }
 
-    class func loginSession(_ completion: (Result<HTML, NSError>) -> ()) {
+    class func loginSession(_ completion: @escaping (Result<HTML>) -> ()) {
         guard let userParams = UserDefaults.userParams() else {
             return completion(.failure(NSError(domain: "login-session", code: 1000, userInfo: nil)))
         }
@@ -96,13 +96,13 @@ class WebConnection {
             case .failure(let error):
                 (NSApp.delegate as! AppDelegate).notification.show(
                     title: "Failed login to 勤之助",
-                    message: error.description
+                    message: error.localizedDescription
                 )
             }
         }
     }
 
-    class func attendanceRecord(_ completion: (Result<HTML, NSError>) -> ()) {
+    class func attendanceRecord(_ completion: @escaping (Result<HTML>) -> ()) {
         loginSession { response in
             switch response {
             case .success:
@@ -111,7 +111,7 @@ class WebConnection {
                     "action": "browse"
                 ]
 
-                Alamofire.request(.GET, "\(WebConnection.basePath)", parameters: params).responseString { response in
+                Alamofire.request("\(WebConnection.basePath)", method: .get, parameters: params).responseString { response in
                     switch response.result {
                     case .success(let html):
                         completion(.success(html))

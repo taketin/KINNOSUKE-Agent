@@ -53,7 +53,7 @@ class LoginViewController: NSViewController {
             case .failure(let error):
                 (NSApp.delegate as! AppDelegate).notification.show(
                     title: "Failed login to 勤之助",
-                    message: error.description
+                    message: error.localizedDescription
                 )
             }
         }
