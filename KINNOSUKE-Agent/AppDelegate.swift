@@ -86,7 +86,9 @@ class AppDelegate: NSObject {
 
     func patrol(notifyImmediately: Bool = false) {
         Scraper.AttendanceRecord.forgottenDays { [weak self] response in
-            guard let strongSelf = self else {
+            guard let strongSelf = self,
+                  let userParams = UserDefaults.userParams()
+            else {
                 return
             }
 
@@ -96,7 +98,7 @@ class AppDelegate: NSObject {
                     if notifyImmediately || Date.isNotificationTime() {
                         (NSApp.delegate as! AppDelegate).notification.show(
                             title: "勤怠申請漏れが\(forgottonDays.count)件あります！",
-                            message: "\(WebConnection.basePath)\(WebConnection.attendancePagePath)"
+                            message: "\(userParams["loginhost"]!)\(WebConnection.attendancePagePath)"
                         )
                     }
 
@@ -105,7 +107,7 @@ class AppDelegate: NSObject {
                     if notifyImmediately {
                         (NSApp.delegate as! AppDelegate).notification.show(
                             title: "勤怠申請漏れはありません",
-                            message: "\(WebConnection.basePath)\(WebConnection.attendancePagePath)"
+                            message: "\(userParams["loginhost"]!)\(WebConnection.attendancePagePath)"
                         )
                     }
                     strongSelf.statusItem.image = strongSelf.iconImage(.normal)
