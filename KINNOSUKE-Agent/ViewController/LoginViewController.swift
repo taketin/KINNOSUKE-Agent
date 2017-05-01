@@ -16,6 +16,7 @@ class LoginViewController: NSViewController {
     @IBOutlet weak fileprivate var _companyIdForm: NSTextField!
     @IBOutlet weak fileprivate var _userIdForm: NSTextField!
     @IBOutlet weak fileprivate var _passwordForm: NSTextField!
+    @IBOutlet weak fileprivate var _loginHostMatrix: NSMatrix!
 
     // MARK: Lifecycle
 
@@ -36,7 +37,8 @@ class LoginViewController: NSViewController {
         let params = WebConnection.LoginParameters.build(
             companyId: _companyIdForm.stringValue,
             userId: _userIdForm.stringValue,
-            password: _passwordForm.stringValue
+            password: _passwordForm.stringValue,
+            loginHost: _loginHostMatrix.selectedCell()!.tag
         )
 
         WebConnection.login(params) { response in
