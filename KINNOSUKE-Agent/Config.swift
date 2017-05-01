@@ -9,7 +9,6 @@
 import Foundation
 
 let AppName = "KINNOSUKE-Agent"
-let SCHEME = "https://"
-let URL_4628 = "www.4628.jp"
-let URL_E4628 = "www.e4628.jp"
+let TARGET_SITE_SCHEME = "https://"
+let TARGET_SITE_URL = "www.4628.jp"
 let PATROL_INTERVAL_SEC: TimeInterval = 60 * 120

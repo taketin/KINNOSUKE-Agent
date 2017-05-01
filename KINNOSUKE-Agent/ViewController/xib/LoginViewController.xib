@@ -10,7 +10,6 @@
         <customObject id="-2" userLabel="File's Owner" customClass="LoginViewController" customModule="KINNOSUKE_Agent" customModuleProvider="target">
             <connections>
                 <outlet property="_companyIdForm" destination="Ke7-ZJ-BTq" id="djM-qC-jY9"/>
-                <outlet property="_loginHostMatrix" destination="6od-Gl-OPV" id="tUO-1G-L5e"/>
                 <outlet property="_passwordForm" destination="wUI-6n-rAb" id="hrQ-Bk-Awd"/>
                 <outlet property="_titleContainer" destination="fOk-4n-9yu" id="oEq-HV-IhY"/>
                 <outlet property="_userIdForm" destination="807-qv-KuU" id="UER-1Y-AWZ"/>
@@ -20,11 +19,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView wantsLayer="YES" id="1VV-2r-gND">
-            <rect key="frame" x="0.0" y="0.0" width="300" height="286"/>
+            <rect key="frame" x="0.0" y="0.0" width="300" height="246"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="fOk-4n-9yu" userLabel="Title Container">
-                    <rect key="frame" x="0.0" y="236" width="300" height="50"/>
+                    <rect key="frame" x="0.0" y="196" width="300" height="50"/>
                     <subviews>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bjg-52-ia9">
                             <rect key="frame" x="97" y="15" width="106" height="20"/>
@@ -46,7 +45,7 @@
                     </constraints>
                 </customView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="HlN-Sm-H35" userLabel="Field Name Container">
-                    <rect key="frame" x="0.0" y="90" width="120" height="146"/>
+                    <rect key="frame" x="0.0" y="50" width="120" height="146"/>
                     <subviews>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEk-nv-dAv">
                             <rect key="frame" x="59" y="109" width="53" height="13"/>
@@ -83,7 +82,7 @@ EBDjgYrlrqLmp5hJRA
                     </constraints>
                 </customView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="eVT-T6-Ct4" userLabel="Form Container">
-                    <rect key="frame" x="120" y="90" width="180" height="146"/>
+                    <rect key="frame" x="120" y="50" width="180" height="146"/>
                     <subviews>
                         <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ke7-ZJ-BTq">
                             <rect key="frame" x="10" y="104" width="120" height="22"/>
@@ -132,39 +131,6 @@ EBDjgYrlrqLmp5hJRA
                         <constraint firstItem="wUI-6n-rAb" firstAttribute="top" secondItem="807-qv-KuU" secondAttribute="bottom" constant="20" id="p08-96-3Ut"/>
                     </constraints>
                 </customView>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="mem-ti-vsX" userLabel="Choose login host container">
-                    <rect key="frame" x="0.0" y="50" width="300" height="40"/>
-                    <subviews>
-                        <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" autosizesCells="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6od-Gl-OPV">
-                            <rect key="frame" x="68" y="11" width="164" height="18"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                            <size key="cellSize" width="82" height="18"/>
-                            <buttonCell key="prototype" type="radio" title="e4628.jp" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="XgL-UX-Qps">
-                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                <font key="font" metaFont="system"/>
-                            </buttonCell>
-                            <cells>
-                                <column>
-                                    <buttonCell type="radio" title="e4628.jp" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="tXN-Bo-HW0">
-                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                </column>
-                                <column>
-                                    <buttonCell type="radio" title="4628.jp" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="1" inset="2" id="vw5-j6-j3S">
-                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                </column>
-                            </cells>
-                        </matrix>
-                    </subviews>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="9UZ-lV-hrB"/>
-                        <constraint firstItem="6od-Gl-OPV" firstAttribute="centerX" secondItem="mem-ti-vsX" secondAttribute="centerX" id="B3Z-g2-j4k"/>
-                        <constraint firstItem="6od-Gl-OPV" firstAttribute="centerY" secondItem="mem-ti-vsX" secondAttribute="centerY" id="g80-r6-3QP"/>
-                    </constraints>
-                </customView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="XQm-tb-XW4" userLabel="Login Button Container">
                     <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
                     <subviews>
@@ -196,28 +162,20 @@ EBDjgYrlrqLmp5hJRA
                 <constraint firstItem="eVT-T6-Ct4" firstAttribute="top" secondItem="fOk-4n-9yu" secondAttribute="bottom" id="8Oo-Wa-aD0"/>
                 <constraint firstItem="fOk-4n-9yu" firstAttribute="leading" secondItem="1VV-2r-gND" secondAttribute="leading" id="8c3-wt-cBY"/>
                 <constraint firstItem="XQm-tb-XW4" firstAttribute="leading" secondItem="1VV-2r-gND" secondAttribute="leading" id="9P5-1Q-4FD"/>
+                <constraint firstItem="XQm-tb-XW4" firstAttribute="top" secondItem="eVT-T6-Ct4" secondAttribute="bottom" id="Bcn-c9-Dfq"/>
                 <constraint firstItem="kG9-Zq-U8X" firstAttribute="centerY" secondItem="807-qv-KuU" secondAttribute="centerY" id="C4Y-g2-fPl"/>
-                <constraint firstAttribute="trailing" secondItem="mem-ti-vsX" secondAttribute="trailing" id="NxU-GA-Qbe"/>
-                <constraint firstItem="mem-ti-vsX" firstAttribute="top" secondItem="HlN-Sm-H35" secondAttribute="bottom" id="W2p-4o-Lpf"/>
+                <constraint firstItem="XQm-tb-XW4" firstAttribute="top" secondItem="HlN-Sm-H35" secondAttribute="bottom" id="D7Q-Z3-nab"/>
                 <constraint firstAttribute="trailing" secondItem="eVT-T6-Ct4" secondAttribute="trailing" id="aeu-Y7-Tkp"/>
                 <constraint firstItem="eVT-T6-Ct4" firstAttribute="leading" secondItem="HlN-Sm-H35" secondAttribute="trailing" id="ccx-qg-2em"/>
                 <constraint firstAttribute="trailing" secondItem="XQm-tb-XW4" secondAttribute="trailing" id="ecU-mp-kdu"/>
-                <constraint firstItem="mem-ti-vsX" firstAttribute="bottom" secondItem="XQm-tb-XW4" secondAttribute="top" id="f7z-Ag-OXu"/>
                 <constraint firstAttribute="bottom" secondItem="XQm-tb-XW4" secondAttribute="bottom" id="g5q-AE-Vr1"/>
                 <constraint firstItem="HlN-Sm-H35" firstAttribute="leading" secondItem="1VV-2r-gND" secondAttribute="leading" id="h9g-Uw-RtD"/>
                 <constraint firstItem="kEk-nv-dAv" firstAttribute="centerY" secondItem="Ke7-ZJ-BTq" secondAttribute="centerY" id="ioW-bf-ELL"/>
-                <constraint firstItem="mem-ti-vsX" firstAttribute="leading" secondItem="1VV-2r-gND" secondAttribute="leading" id="lHQ-Yz-1IC"/>
                 <constraint firstItem="eVT-T6-Ct4" firstAttribute="top" secondItem="fOk-4n-9yu" secondAttribute="bottom" id="vw9-Cw-nmT"/>
                 <constraint firstItem="zv3-aL-a57" firstAttribute="centerY" secondItem="wUI-6n-rAb" secondAttribute="centerY" id="xAr-dn-Ef6"/>
                 <constraint firstItem="fOk-4n-9yu" firstAttribute="top" secondItem="1VV-2r-gND" secondAttribute="top" id="yK7-Zb-Ejc"/>
-                <constraint firstItem="mem-ti-vsX" firstAttribute="top" secondItem="eVT-T6-Ct4" secondAttribute="bottom" id="zwc-kD-F1W"/>
             </constraints>
-            <point key="canvasLocation" x="297" y="64"/>
-        </customView>
-        <customView id="mec-G2-73G">
-            <rect key="frame" x="0.0" y="0.0" width="163" height="70"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <point key="canvasLocation" x="237.5" y="175"/>
+            <point key="canvasLocation" x="297" y="41.5"/>
         </customView>
     </objects>
 </document>
