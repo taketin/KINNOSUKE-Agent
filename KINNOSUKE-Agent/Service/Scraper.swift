@@ -88,7 +88,7 @@ class Scraper {
                                 day = nodeByTd.text!
                                 if day == skipContent {
                                     continue CheckTable
-                                } else if day == finishContent || Int(day) >= Int(dateComponent.day!) {
+                                } else if day == finishContent || Int(day) ?? 0 > Int(dateComponent.day!) {
                                     break CheckTable
                                 }
 
