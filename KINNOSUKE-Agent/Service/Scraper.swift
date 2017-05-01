@@ -63,7 +63,7 @@ class Scraper {
         static let dayColumnIndex = 0
         static let typeOfDayIndex = 2
         static let todokedeNaiyouColumnIndex = 4
-        static let jitsudouJikanColumnIndex = 8
+        static let jitsudouJikanColumnIndex = 7
 
         // MARK: Static methods
 
