@@ -15,7 +15,6 @@ class WebConnection {
 
     // MARK: Properties
 
-    static let basePath = "\(TARGET_SITE_SCHEME)\(TARGET_SITE_URL)"
     static let attendancePagePath = "?module=timesheet&action=browse"
 
     // MARK: Enums
@@ -25,11 +24,22 @@ class WebConnection {
         case UserID = "y_logincd"
         case Password = "password"
 
-        static func build(companyId: String, userId: String, password: String) -> [String: String] {
+        static func build(companyId: String, userId: String, password: String, loginHost: Int) -> [String: String] {
+            let loginHostString: String
+            switch (loginHost) {
+            case 0:
+                loginHostString = "\(URL_E4628)/\(companyId)/"
+            case 1:
+                loginHostString = URL_4628
+            default:
+                loginHostString = URL_4628
+            }
+
             let params = [
                 CompanyID.rawValue: companyId,
                 UserID.rawValue: userId,
-                Password.rawValue: password
+                Password.rawValue: password,
+                "loginhost": "\(SCHEME)\(loginHostString)"
             ]
 
             return params
@@ -63,9 +73,9 @@ class WebConnection {
      *  (company id, user id, password)
      */
     class func login(_ params: [String: String], completion: @escaping (Result<HTML>) -> ()) {
-        let isLoginedKeyString = "ログアウト"
+        let isLoginedKeyString = "前回ログイン"
 
-        Alamofire.request(WebConnection.basePath, method: .post, parameters: params).responseString { response in
+        Alamofire.request(params["loginhost"]!, method: .post, parameters: params).responseString { response in
             switch response.result {
             case .success(let html):
                 if let response = response.response,
@@ -106,12 +116,17 @@ class WebConnection {
         loginSession { response in
             switch response {
             case .success:
+                // FIXME: ログイン URL はいちいち userdefaults から取るのうざいので別で持つようにしたい
+                guard let userParams = UserDefaults.userParams() else {
+                    return completion(.failure(NSError(domain: "attendance-record", code: 1001, userInfo: nil)))
+                }
+
                 let params = [
                     "module": "timesheet",
                     "action": "browse"
                 ]
 
-                Alamofire.request("\(WebConnection.basePath)", method: .get, parameters: params).responseString { response in
+                Alamofire.request(userParams["loginhost"]!, method: .get, parameters: params).responseString { response in
                     switch response.result {
                     case .success(let html):
                         completion(.success(html))
